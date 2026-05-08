@@ -3,12 +3,7 @@
   "version": "1.0.0",
   "description": "\"# Edu-Streak\"",
   "main": "index.js",
-  "scripts": {
-    "dev": "next dev",
-    "start": "node index.js",
-    "build": "tailwindcss -i ./app/Resources/css/input.css -o ./public/css/output.css --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wily980/Edu-Streak.git"
