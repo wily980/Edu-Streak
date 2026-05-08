@@ -78,5 +78,10 @@ class AuthController
         header('Location: /Edu_Streak_Lock_in/public/students');
         exit;
     }
+    public function login()
+{
+    require_once '../app/views/auth/login.php';
 }
+}
+
 ?>

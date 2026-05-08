@@ -1,107 +1,29 @@
 <?php
-
 namespace App\Controllers;
 
-require_once '../app/core/controllers.php';
+require_once '../app/core/Database.php';
+use App\Core\Database;
 
-require_once '../app/models/Student.php';
-
-
-
-use App\Core\controllers;
-
-use App\models\Student;
-
-class StudentController extends controllers
-
+class StudentController
 {
+    private Database $db;
+
+    public function __construct()
+    {
+        $this->db = new Database();
+    }
 
     public function index()
-
     {
-
-        $studentModel = new Student();
-
-        $students = $studentModel->getStudents();      
-
-
-
-
-
-        $this->view('students.index', [
-
-            'students' => $students
-
-        ]);
-
+        $students = $this->db->fetchAll("SELECT * FROM usr_users");
+        require_once '../app/views/students/index.php';
     }
 
-
-
-    public function create()
-
-    {
-
-        $this->view('students.create');
-
-    }
-
-
-
-public function show(string $id)
-
-    {
-
-        $id = intval ($id);
-
-        $studentModel = new Student();
-
-        $student = $studentModel->getStudent($id);
-
-        $this->view('students.show', ['student' => $student]);
-
-    }
-
-public function edit(string $id)
-
-    {
-        $id = intval ($id);
-
-        $studentModel = new Student();
-
-        $student = $studentModel->getStudent($id);
-
-        $this->view('students.edit', [
-            'student' => $student
-        ]);
-
-        // Implementasi untuk menampilkan form edit siswa
-
-    }
-
-public function store()
-
-    {
-
-        $studentModel = new Student();
-
-        $studentModel->insert($_POST);
-
-    }
-
-public function update(string $id)
-{
-    $id = intval($id);
-    $studentModel = new Student();
-    $studentModel->update($_POST, $id);
+    public function create() {}
+    public function show($id) {}
+    public function edit($id) {}
+    public function store() {}
+    public function update($id) {}
+    public function destroy($id) {}
 }
-
-public function destroy(string $id)
-{
-    $id = intval($id);
-    $studentModel = new Student();
-    $studentModel->delete($id);
-}
-
-
-}   
+?>
