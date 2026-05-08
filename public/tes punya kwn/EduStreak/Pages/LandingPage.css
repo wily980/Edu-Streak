@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 55px;
+}
+
+.logo span {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.language {
+  color: #666;
+  font-size: 22px;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  margin: 0px 100px;
+}
+
+.left img {
+  width: 800px;
+}
+
+/* Right Content */
+.right {
+  max-width: 700px;
+}
+
+.right h1 {
+  font-size: 60px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+/* Buttons */
+.btn-start {
+  width: 100%;
+  padding: 30px;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 40px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 123, 104);
+}
+
+.btn-start:hover {
+  background-color: #16a085;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 30px;
+  background-color: transparent;
+  border: 5px solid #aaaaaa;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #1abc9c;
+  font-size: 30px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  gap: 70px;
+  border-top: #cecccc 7px solid;
+}
+
+.icons {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  gap: 0;
+}
+
+.icon-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 5s linear infinite;
+  gap: 10em;
+  padding: 0px 70px;
+}
+
+.icons img {
+  width: 70px;
+  height: 70px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
