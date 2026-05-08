@@ -16,40 +16,45 @@ class Router
         ];
     }
     public function run()
-    {
-        $method = $_SERVER['REQUEST_METHOD'];
-        if($method === "POST" && isset($_POST['_method'])){
-            $method = strtoupper($_POST['_method']);
-        }
- 
-        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
- 
-        foreach ($this->routes as $route) {
-            $pattern = str_replace(
-                '{id}',
-                '([0-9]+)',
-                $route['uri']
-            );
-            $pattern = '#^' . $pattern . '$#';
-            // /students/{id} -> /students/#^([0-9]+)$# = /students/1
- 
-            if(preg_match($pattern, $uri, $matches) && $method === $route['method']){
-                array_shift($matches);
-               
-                require_once '../app/controllers/' . $route['controller'] . '.php';
-                $controllerClass = 'App\\Controllers\\' . $route['controller'];
-                $controller = new $controllerClass();
-                $function = $route['function'];
- 
-                call_user_func_array([$controller, $function], $matches);
-                return;
-            }
- 
-        }
- 
-        http_response_code(404);
-        echo '<h1>404 = Page Not Found</h1>';
+{
+    $method = $_SERVER['REQUEST_METHOD'];
+    if ($method === "POST" && isset($_POST['_method'])) {
+        $method = strtoupper($_POST['_method']);
     }
+
+    $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+    // Strip base path so /Edu_Streak_Lock_in/public/auth/google becomes /auth/google
+    $basePath = '/Edu_Streak_Lock_in/public';
+    if (str_starts_with($uri, $basePath)) {
+        $uri = substr($uri, strlen($basePath));
+    }
+
+    // Make sure uri is never empty
+    if (empty($uri)) {
+        $uri = '/';
+    }
+
+    foreach ($this->routes as $route) {
+        $pattern = str_replace('{id}', '([0-9]+)', $route['uri']);
+        $pattern = '#^' . $pattern . '$#';
+
+        if (preg_match($pattern, $uri, $matches) && $method === $route['method']) {
+            array_shift($matches);
+
+            require_once '../app/controllers/' . $route['controller'] . '.php';
+            $controllerClass = 'App\\Controllers\\' . $route['controller'];
+            $controller = new $controllerClass();
+            $function = $route['function'];
+
+            call_user_func_array([$controller, $function], $matches);
+            return;
+        }
+    }
+
+    http_response_code(404);
+    echo '<h1>404 = Page Not Found</h1>';
+}
  
 }
  

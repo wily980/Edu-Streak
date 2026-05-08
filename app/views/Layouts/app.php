@@ -13,7 +13,9 @@
     <?php require_once '../app/views/Layouts/partials/header.php' ?>
  
     <main class="grow container mx-auto">
-        <?php require_once $content ?>
+        <?php if (isset($content)) {
+            require_once $content;
+        } ?>
     </main>
     <?php require_once '../app/views/Layouts/partials/footer.php' ?>
 </body>

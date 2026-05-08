@@ -11,3 +11,6 @@ Thumbs.db
 
 # Optional: Generated CSS
 # public/css/output.css
+app/config/app.php
+vendor/
+node_modules/
