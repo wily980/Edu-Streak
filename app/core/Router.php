@@ -24,8 +24,8 @@ class Router
 
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-    // Strip base path so /Edu_Streak_Lock_in/public/auth/google becomes /auth/google
-    $basePath = '/Edu_Streak_Lock_in/public';
+    // Strip base path so /auth/google becomes /auth/google
+    $basePath = '';
     if (str_starts_with($uri, $basePath)) {
         $uri = substr($uri, strlen($basePath));
     }

@@ -75,7 +75,7 @@ class AuthController
             );
         }
 
-        header('Location: /Edu_Streak_Lock_in/public/students');
+        header('Location: /students');
         exit;
     }
     public function login()

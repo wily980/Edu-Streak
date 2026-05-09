@@ -142,3 +142,68 @@
     transform: translateX(-100%);
   }
 }
+
+/* Learn Page */
+.learn-section {
+  padding: 40px 60px;
+  text-align: center;
+}
+
+.learn-title {
+  font-size: 28px;
+  margin-bottom: 40px;
+  font-family: 'Unbounded', sans-serif;
+}
+
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+}
+
+.language-card {
+  border: 3px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 24px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.language-card:hover {
+  border-color: #1abc9c;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(26, 188, 156, 0.2);
+}
+
+.language-card input:checked + img {
+  transform: scale(1.1);
+}
+
+.language-card:has(input:checked) {
+  border-color: #1abc9c;
+  background-color: #f0fdf9;
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.3);
+}
+
+.language-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.language-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Unbounded', sans-serif;
+}
+
+.learn-btn-wrap {
+  max-width: 400px;
+  margin: 0 auto;
+}

@@ -19,6 +19,8 @@ $router->add('POST', '/students', 'StudentController', 'store');
 $router->add('PUT', '/students/{id}', 'StudentController', 'update');
 $router->add('DELETE', '/students/{id}', 'StudentController', 'destroy');
 $router->add('GET', '/', 'AuthController', 'login'); 
+$router->add('GET', '/learn', 'LanguageController', 'index');
+$router->add('POST', '/learn', 'LanguageController', 'store');
 
 $router->run();
 ?>

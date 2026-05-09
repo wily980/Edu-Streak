@@ -1,9 +1,21 @@
-# Task: Integrate Unbounded and Spectral Fonts with Tailwind
+## Edu Streak Todo List
 
-## Steps:
-- [x] Create tailwind.config.js with custom font families
-- [x] Edit app/views/Layouts/app.php to add Google Fonts links
-- [x] Edit package.json build script to correct paths
-- [x] Run `npm run build` (note: manual due to PowerShell policy)
-- [x] Test by adding font-unbounded/font-spectral classes to app/views/students/index.php h1
-- [x] Update TODO.md as complete
+| Priority | Task | Status |
+|----------|------|--------|
+| ✅ Done | Landing page UI | ✅ Done |
+| ✅ Done | Google OAuth login | ✅ Done |
+| ✅ Done | Language selection page | ✅ Done |
+| ✅ Done | Save language to database | ✅ Done |
+| 🔴 High | "Choose your username" page for new users | ❌ Todo |
+| 🔴 High | Redirect to username page after first login | ❌ Todo |
+| 🔴 High | Student dashboard page UI | ❌ Todo |
+| 🔴 High | XP system (earn XP, display progress) | ❌ Todo |
+| 🔴 High | Hearts/Lives system | ❌ Todo |
+| 🔴 High | Badges display | ❌ Todo |
+| 🔴 High | Logout functionality | ❌ Todo |
+| 🟡 Medium | Leaderboard/League system | ❌ Todo |
+| 🟡 Medium | Streak tracking UI | ❌ Todo |
+| 🟡 Medium | Track/Lesson content pages | ❌ Todo |
+| 🟡 Medium | Progress tracking per lesson | ❌ Todo |
+| 🟢 Low | Notifications/Reminders | ❌ Todo |
+| 🟢 Low | README.md | ❌ Todo |
