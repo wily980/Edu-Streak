@@ -60,7 +60,7 @@ class AuthController
             if (empty($existing['google_id'])) {
                 $db->execute(
                 "INSERT INTO usr_users (id, google_id, name, email, avatar_url, username) VALUES (UUID(), ?, ?, ?, ?, ?)",
-                [$googleId, $name, $email, $avatar, $email] // using email as temporary username
+                [$googleId, $name, $email, $avatar, $email] // namanya pake email
                 );
             }
             $_SESSION['user'] = $existing;
@@ -75,7 +75,7 @@ class AuthController
             );
         }
 
-        header('Location: /students');
+        header('Location: ../../students');
         exit;
     }
     public function login()

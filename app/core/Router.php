@@ -15,7 +15,7 @@ class Router
             'function' => $function
         ];
     }
-    public function run()
+public function run()
 {
     $method = $_SERVER['REQUEST_METHOD'];
     if ($method === "POST" && isset($_POST['_method'])) {
@@ -24,16 +24,11 @@ class Router
 
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-    // Strip base path so /auth/google becomes /auth/google
-    $basePath = '';
-    if (str_starts_with($uri, $basePath)) {
-        $uri = substr($uri, strlen($basePath));
-    }
-
-    // Make sure uri is never empty
-    if (empty($uri)) {
-        $uri = '/';
-    }
+    // This strips the project folders so the router only sees "/students"
+    $uri = str_replace('/Edu_Streak_Lock_in/public', '', $uri);
+    
+    // Clean up slashes
+    $uri = '/' . trim($uri, '/');
 
     foreach ($this->routes as $route) {
         $pattern = str_replace('{id}', '([0-9]+)', $route['uri']);
@@ -54,6 +49,7 @@ class Router
 
     http_response_code(404);
     echo '<h1>404 = Page Not Found</h1>';
+    echo "Debug: Router could not find match for URI: " . $uri;
 }
  
 }
