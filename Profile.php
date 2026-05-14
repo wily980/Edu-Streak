@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Life - Learning App</title>
 
   <link rel="stylesheet" href="Profile.css" />
@@ -16,7 +17,7 @@
     <aside class="sidebar" id="sidebar">
 
       <div class="logo">
-        <img src="../../assets/Logoutama.png" alt="Logo" class="logo-img">
+        <img src="/public/tes-punya-kwn/Assets/Logoutama.png" alt="Logo" class="logo-img">
       </div>
 
       <nav class="nav-items">
@@ -63,20 +64,9 @@
     <!-- TOGGLE BUTTON -->
     <button class="sidebar-arrow" id="sidebarArrow" aria-label="Toggle Sidebar">
 
-      <svg 
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        class="arrow-svg"
-        id="arrowSvg"
-      >
-        <polyline
-          points="15 18 9 12 15 6"
-          stroke="white"
-          stroke-width="2.5"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="arrow-svg" id="arrowSvg">
+        <polyline points="15 18 9 12 15 6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"
+          stroke-linejoin="round" />
 
       </svg>
 
@@ -145,10 +135,15 @@
                 Joined at April 2026
               </p>
 
+            <div class="below-join-date">
               <div class="follow-info">
                 <span>Follower 0</span>
                 <span>Following 0</span>
               </div>
+
+              <img src="public/tes-punya-kwn/Assets/python.png" alt="">
+
+            </div>
 
             </div>
 
@@ -184,7 +179,7 @@
             <div class="quest-body">
 
               <div class="quest-lock">
-                <img src="../../assets/Vector.png" alt="">
+                <img src="/public/tes-punya-kwn/Assets/Vector.png" alt="">
               </div>
 
               <p class="quest-desc">
@@ -213,7 +208,7 @@
             <div class="quest-body extra-body">
 
               <div class="bolt-icon">
-                <img src="../../assets/petir.png" alt="">
+                <img src="/public/tes-punya-kwn/Assets/petir.png" alt="">
               </div>
 
               <div class="extra-info">
@@ -234,18 +229,14 @@
 
                   <div class="chest-icon">
 
-                    <svg 
-                      viewBox="0 0 40 34"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="chest-svg"
-                    >
+                    <svg viewBox="0 0 40 34" xmlns="http://www.w3.org/2000/svg" class="chest-svg">
 
-                      <rect x="0" y="10" width="40" height="24" rx="4" fill="#4a5568"/>
-                      <rect x="0" y="10" width="40" height="10" rx="2" fill="#5a6a7e"/>
-                      <rect x="14" y="14" width="12" height="10" rx="3" fill="#888"/>
-                      <rect x="17" y="16" width="6" height="6" rx="2" fill="#aaa"/>
-                      <rect x="0" y="0" width="40" height="12" rx="4" fill="#6b7a90"/>
-                      <rect x="14" y="2" width="12" height="8" rx="2" fill="#7a8a9f"/>
+                      <rect x="0" y="10" width="40" height="24" rx="4" fill="#4a5568" />
+                      <rect x="0" y="10" width="40" height="10" rx="2" fill="#5a6a7e" />
+                      <rect x="14" y="14" width="12" height="10" rx="3" fill="#888" />
+                      <rect x="17" y="16" width="6" height="6" rx="2" fill="#aaa" />
+                      <rect x="0" y="0" width="40" height="12" rx="4" fill="#6b7a90" />
+                      <rect x="14" y="2" width="12" height="8" rx="2" fill="#7a8a9f" />
 
                     </svg>
 
@@ -287,4 +278,5 @@
   <script src="Profile.js"></script>
 
 </body>
+
 </html>

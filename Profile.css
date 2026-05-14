@@ -402,6 +402,18 @@ body {
   color: #c9d2de;
 }
 
+.below-join-date img {
+  width: 45px;
+  height: 45px;
+}
+
+.below-join-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
+}
 /* =========================
    DIVIDER
 ========================= */
