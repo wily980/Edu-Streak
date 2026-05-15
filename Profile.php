@@ -23,37 +23,38 @@
       <nav class="nav-items">
 
         <div class="nav-item">
-          <img src="../../assets/icon-box.png" alt="" class="nav-box-icon">
+          <img src="/public/tes-punya-kwn/Assets/boxicons_home-filled.png" alt="" class="nav-box-icon">
           <span class="nav-label">Home</span>
         </div>
 
         <div class="nav-item">
-          <img src="../../assets/icon-box.png" alt="" class="nav-box-icon">
+          <img src="/public/tes-punya-kwn/Assets/ph_code-fill.png" alt="" class="nav-box-icon">
           <span class="nav-label">Progress</span>
         </div>
 
         <div class="nav-item">
-          <img src="../../assets/icon-box.png" alt="" class="nav-box-icon">
+          <img src="/public/tes-punya-kwn/Assets/ri_trophy-fill.png" alt="" class="nav-box-icon">
           <span class="nav-label">Score</span>
         </div>
 
         <div class="nav-item">
-          <img src="../../assets/icon-box.png" alt="" class="nav-box-icon">
+          <img src="/public/tes-punya-kwn/Assets/streamline-ultimate_treasure-chest-bold.png" alt=""
+            class="nav-box-icon">
           <span class="nav-label">Quest</span>
         </div>
 
         <div class="nav-item active">
-          <img src="../../assets/icon-box.png" alt="" class="nav-box-icon">
+          <img src="/public/tes-punya-kwn/Assets/solar_shop-bold.png" alt="" class="nav-box-icon">
           <span class="nav-label">Shop</span>
         </div>
 
         <div class="nav-item">
-          <img src="../../assets/icon-box.png" alt="" class="nav-box-icon">
+          <img src="/public/tes-punya-kwn/Assets/iconamoon_profile-fill.png" alt="" class="nav-box-icon">
           <span class="nav-label">Profile</span>
         </div>
 
         <div class="nav-item">
-          <img src="../../assets/icon-box.png" alt="" class="nav-box-icon">
+          <img src="/public/tes-punya-kwn/Assets/basil_other-1-outline.png" alt="" class="nav-box-icon">
           <span class="nav-label">Other</span>
         </div>
 
@@ -135,15 +136,15 @@
                 Joined at April 2026
               </p>
 
-            <div class="below-join-date">
-              <div class="follow-info">
-                <span>Follower 0</span>
-                <span>Following 0</span>
+              <div class="below-join-date">
+                <div class="follow-info">
+                  <span>Follower 0</span>
+                  <span>Following 0</span>
+                </div>
+
+                <img src="public/tes-punya-kwn/Assets/python.png" alt="">
+
               </div>
-
-              <img src="public/tes-punya-kwn/Assets/python.png" alt="">
-
-            </div>
 
             </div>
 
