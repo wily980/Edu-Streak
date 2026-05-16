@@ -43,12 +43,12 @@
           <span class="nav-label">Quest</span>
         </div>
 
-        <div class="nav-item active">
+        <div class="nav-item">
           <img src="/public/tes-punya-kwn/Assets/solar_shop-bold.png" alt="" class="nav-box-icon">
           <span class="nav-label">Shop</span>
         </div>
 
-        <div class="nav-item">
+        <div class="nav-item active">
           <img src="/public/tes-punya-kwn/Assets/iconamoon_profile-fill.png" alt="" class="nav-box-icon">
           <span class="nav-label">Profile</span>
         </div>
@@ -115,12 +115,14 @@
             <!-- BANNER -->
             <div class="banner">
 
+              <img src="/public/tes-punya-kwn/Assets/astronomy.jpg" alt="">
+
               <button class="edit-btn">
-                <img src="../../assets/edit.png" alt="">
+                <img src="public/tes-punya-kwn/Assets/line-md_pencil-twotone.png" alt="">
               </button>
 
               <div class="profile-photo">
-                <img src="../../assets/profile.png" alt="">
+                <img src="public/tes-punya-kwn/Assets/juan.jpeg" alt="">
               </div>
 
             </div>

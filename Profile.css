@@ -302,7 +302,15 @@ body {
   width: 100%;
   height: 240px;
 
-  background: linear-gradient(135deg, #3a4f74, #273247);
+  background-color: #273247;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-fit: cover;
 }
 
 /* =========================
