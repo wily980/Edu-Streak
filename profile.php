@@ -1,202 +1,285 @@
-<!-- profile.php -->
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life - Learning App</title>
 
-  <!-- FONT -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="profile.css"/>
 </head>
+
 <body>
 
-  <div class="container">
+  <div class="app-root">
 
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
 
       <div class="logo">
-        <img src="img/logo.png" alt="">
+        <img src="/public/tes-punya-kwn/Assets/Logoutama.png" alt="Logo" class="logo-img">
       </div>
 
-      <div class="menu">
+      <nav class="nav-items">
 
-        <div class="menu-box active">
-          <img src="img/box.png" alt="">
+        <div class="nav-item">
+          <img src="/public/tes-punya-kwn/Assets/boxicons_home-filled.png" alt="" class="nav-box-icon">
+          <span class="nav-label">Home</span>
         </div>
 
-        <div class="menu-box">
-          <img src="img/box.png" alt="">
+        <div class="nav-item">
+          <img src="/public/tes-punya-kwn/Assets/ph_code-fill.png" alt="" class="nav-box-icon">
+          <span class="nav-label">Progress</span>
         </div>
 
-        <div class="menu-box">
-          <img src="img/box.png" alt="">
+        <div class="nav-item">
+          <img src="/public/tes-punya-kwn/Assets/ri_trophy-fill.png" alt="" class="nav-box-icon">
+          <span class="nav-label">Score</span>
         </div>
 
-        <div class="menu-box">
-          <img src="img/box.png" alt="">
+        <div class="nav-item">
+          <img src="/public/tes-punya-kwn/Assets/streamline-ultimate_treasure-chest-bold.png" alt=""
+            class="nav-box-icon">
+          <span class="nav-label">Quest</span>
         </div>
 
-        <div class="menu-box">
-          <img src="img/box.png" alt="">
+        <div class="nav-item">
+          <img src="/public/tes-punya-kwn/Assets/solar_shop-bold.png" alt="" class="nav-box-icon">
+          <span class="nav-label">Shop</span>
         </div>
 
-        <div class="menu-box">
-          <img src="img/box.png" alt="">
+        <div class="nav-item active">
+          <img src="/public/tes-punya-kwn/Assets/iconamoon_profile-fill.png" alt="" class="nav-box-icon">
+          <span class="nav-label">Profile</span>
         </div>
 
-        <div class="menu-box">
-          <img src="img/box.png" alt="">
+        <div class="nav-item">
+          <img src="/public/tes-punya-kwn/Assets/basil_other-1-outline.png" alt="" class="nav-box-icon">
+          <span class="nav-label">Other</span>
         </div>
 
-      </div>
+      </nav>
 
     </aside>
 
-    <!-- MAIN -->
-    <main class="main-content">
+    <!-- TOGGLE BUTTON -->
+    <button class="sidebar-arrow" id="sidebarArrow" aria-label="Toggle Sidebar">
 
-      <!-- PROFILE CARD -->
-      <section class="profile-section">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="arrow-svg" id="arrowSvg">
+        <polyline points="15 18 9 12 15 6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"
+          stroke-linejoin="round" />
 
-        <div class="banner">
+      </svg>
 
-          <button class="edit-btn">
-            <img src="img/edit.png" alt="">
-          </button>
+    </button>
 
-          <div class="profile-photo">
-            <img src="img/profile.png" alt="">
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+
+        <div class="topbar-items">
+
+          <div class="topbar-item html5">
+            <img src="public/tes-punya-kwn/assets/icon-html.png" alt="" class="html5-icon">
+          </div>
+
+          <div class="topbar-item streak">
+            <img src="public/tes-punya-kwn/assets/streak-black.png" alt="" class="streakblack-icon">
+            <span class="streak-count">0</span>
+          </div>
+
+          <div class="topbar-item coins">
+            <img src="public/tes-punya-kwn/assets/coin.png" alt="" class="coin-icon">
+            <span class="coin-count">500</span>
+          </div>
+
+          <div class="topbar-item hearts">
+            <img src="public/tes-punya-kwn/assets/icon-heart.png" alt="" class="heartfull-icon">
           </div>
 
         </div>
 
-        <div class="profile-info">
+      </header>
 
-          <h1>Wily Sepiro</h1>
+      <!-- CONTENT -->
+      <div class="container">
 
-          <p class="username">Wily Sepiro</p>
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
 
-          <p class="join-date">Joined at April 2026</p>
+          <!-- PROFILE -->
+          <section class="profile-section">
 
-          <div class="follow-info">
-            <span>Follower 0</span>
-            <span>Following 0</span>
-          </div>
+            <!-- BANNER -->
+            <div class="banner">
 
-        </div>
+              <img src="/public/tes-punya-kwn/Assets/astronomy.jpg" alt="">
 
-        <div class="divider"></div>
+              <button class="edit-btn">
+                <img src="public/tes-punya-kwn/Assets/line-md_pencil-twotone.png" alt="">
+              </button>
 
-        <h2 class="stat-title">Statistik</h2>
-
-        <div class="stats-grid">
-
-          <div class="stat-box"></div>
-          <div class="stat-box"></div>
-          <div class="stat-box"></div>
-          <div class="stat-box"></div>
-
-        </div>
-
-      </section>
-
-      <!-- RIGHT SIDE -->
-      <aside class="right-panel">
-
-        <!-- TOP ICON -->
-        <div class="top-icons">
-
-          <div class="top-item">
-            <img src="img/html.png" alt="">
-          </div>
-
-          <div class="top-item fire">
-            <img src="img/fire.png" alt="">
-            <span>0</span>
-          </div>
-
-          <div class="top-item coin">
-            <img src="img/coin.png" alt="">
-            <span>500</span>
-          </div>
-
-          <div class="top-item">
-            <img src="img/heart.png" alt="">
-          </div>
-
-        </div>
-
-        <!-- QUEST -->
-        <div class="card">
-
-          <h3>Your Quest for today!</h3>
-
-          <div class="quest-content">
-
-            <img src="img/lock.png" alt="">
-
-            <p>Complete 2 of this question</p>
-
-          </div>
-
-        </div>
-
-        <!-- EXTRA QUEST -->
-        <div class="card">
-
-          <div class="card-head">
-
-            <h3>Extra Quest</h3>
-
-            <a href="#">Lihat semua</a>
-
-          </div>
-
-          <div class="extra-box">
-
-            <img src="img/lightning.png" alt="">
-
-            <div class="progress-content">
-
-              <p>Keep up with your streak 20 times</p>
-
-              <div class="progress-bar">
-                <div class="progress"></div>
+              <div class="profile-photo">
+                <img src="public/tes-punya-kwn/Assets/juan.jpeg" alt="">
               </div>
-
-              <span>0/20</span>
 
             </div>
 
-            <img class="chest" src="img/chest.png" alt="">
+            <!-- PROFILE INFO -->
+            <div class="profile-info">
+
+              <h1>Wily Sepiro</h1>
+
+              <p class="username">@wilysepiro</p>
+
+              <p class="join-date">
+                Joined at April 2026
+              </p>
+
+              <div class="below-join-date">
+                <div class="follow-info">
+                  <span>Follower 0</span>
+                  <span>Following 0</span>
+                </div>
+
+                <img src="public/tes-punya-kwn/Assets/python.png" alt="">
+
+              </div>
+
+            </div>
+
+            <!-- DIVIDER -->
+            <div class="divider"></div>
+
+            <!-- STAT -->
+            <h2 class="stat-title">Statistik</h2>
+
+            <div class="stats-grid">
+
+              <div class="stat-box"></div>
+              <div class="stat-box"></div>
+              <div class="stat-box"></div>
+              <div class="stat-box"></div>
+
+            </div>
+
+          </section>
+
+        </main>
+
+        <!-- RIGHT PANEL -->
+        <aside class="right-panel">
+
+          <!-- TODAY QUEST -->
+          <div class="quest-card">
+
+            <h3 class="quest-title">
+              Your Quest for today!
+            </h3>
+
+            <div class="quest-body">
+
+              <div class="quest-lock">
+                <img src="/public/tes-punya-kwn/Assets/Vector.png" alt="">
+              </div>
+
+              <p class="quest-desc">
+                Complete 2 of this question
+              </p>
+
+            </div>
 
           </div>
 
-        </div>
+          <!-- EXTRA QUEST -->
+          <div class="quest-card extra-quest-card">
 
-        <!-- LOGIN -->
-        <div class="card login-card">
+            <div class="extra-quest-header">
 
-          <h3>Make your profile to keep your streak!</h3>
+              <h3 class="quest-title">
+                Extra Quest
+              </h3>
 
-          <button class="green-btn">Make profile</button>
+              <a href="#" class="lihat-semua">
+                Lihat semua
+              </a>
 
-          <button class="blue-btn">Sign in</button>
+            </div>
 
-        </div>
+            <div class="quest-body extra-body">
 
-      </aside>
+              <div class="bolt-icon">
+                <img src="/public/tes-punya-kwn/Assets/petir.png" alt="">
+              </div>
 
-    </main>
+              <div class="extra-info">
+
+                <p class="extra-desc">
+                  Keep up with your streak 20 times
+                </p>
+
+                <div class="progress-row">
+
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar"></div>
+                  </div>
+
+                  <span class="progress-label">
+                    0/20
+                  </span>
+
+                  <div class="chest-icon">
+
+                    <svg viewBox="0 0 40 34" xmlns="http://www.w3.org/2000/svg" class="chest-svg">
+
+                      <rect x="0" y="10" width="40" height="24" rx="4" fill="#4a5568" />
+                      <rect x="0" y="10" width="40" height="10" rx="2" fill="#5a6a7e" />
+                      <rect x="14" y="14" width="12" height="10" rx="3" fill="#888" />
+                      <rect x="17" y="16" width="6" height="6" rx="2" fill="#aaa" />
+                      <rect x="0" y="0" width="40" height="12" rx="4" fill="#6b7a90" />
+                      <rect x="14" y="2" width="12" height="8" rx="2" fill="#7a8a9f" />
+
+                    </svg>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- PROFILE CARD -->
+          <div class="quest-card profile-card">
+
+            <p class="profile-text">
+              Make your profile to keep your streak!
+            </p>
+
+            <button class="btn btn-green">
+              Make profile
+            </button>
+
+            <button class="btn btn-blue">
+              Sign in
+            </button>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </div>
 
   </div>
 
+  <script src="Profile.js"></script>
+
 </body>
+
 </html>
