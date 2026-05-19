@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Quest</title>
-    <link rel="stylesheet" href="DailyQuest.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Quest</title>
+  <link rel="stylesheet" href="DailyQuest.css">
 </head>
+
 <body>
 
-<div class="app-root">
-    
+  <div class="app-root">
+
+    <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
 
       <div class="logo">
@@ -58,21 +61,21 @@
 
     </aside>
 
+    <!-- TOGGLE BUTTON -->
     <button class="sidebar-arrow" id="sidebarArrow" aria-label="Toggle Sidebar">
 
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="arrow-svg" id="arrowSvg">
         <polyline points="15 18 9 12 15 6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"
           stroke-linejoin="round" />
-
       </svg>
 
     </button>
 
-    <!-- MAIN WRAPPER -->
+    <!-- MAIN -->
     <div class="main-wrapper">
 
       <!-- TOPBAR -->
-    <header class="topbar">
+      <header class="topbar">
 
         <div class="topbar-items">
 
@@ -96,50 +99,116 @@
 
         </div>
 
-    </header>
+      </header>
 
+      <!-- CENTER CONTENT -->
+      <div class="center-content">
 
-    <div class="center-content">
+        <!-- LEFT CONTENT -->
+        <div class="left-content">
 
-        <div class="welcome-banner">
+          <!-- WELCOME -->
+          <div class="welcome-banner">
+
             <div class="welcome-text">
-                <h1>Welcome!</h1>
-                <p>Complete missions to earn rewards! <br> Missions Reset daily.</p>
+              <h1>Welcome!</h1>
+
+              <p>
+                Complete missions to earn rewards!
+                <br>
+                Missions Reset daily.
+              </p>
             </div>
 
             <img src="public/tes-punya-kwn/Assets/welcome-bannerrobot.png" alt="">
+
+          </div>
+
+          <!-- DAILY QUEST -->
+          <div class="daily-quest">
+
+            <div class="title-top">
+
+              <h1>Daily Quest</h1>
+
+              <div class="right-title-top">
+                <img src="public/tes-punya-kwn/Assets/svg-spinners_clock.png" alt="">
+                <h2>1 hour</h2>
+              </div>
+
+            </div>
+
+            <!-- AVAILABLE QUEST -->
+            <div class="available-quest">
+
+              <div class="quest-icon">
+                <img src="public/tes-punya-kwn/Assets/petir.png" alt="" class="quest-icon-img">
+              </div>
+
+              <div class="quest-content">
+
+                <h3>Keep up with your streak 20 times</h3>
+
+                <div class="progress-wrapper">
+
+                  <div class="progress-track"></div>
+
+                  <img
+                    src="public/tes-punya-kwn/Assets/streamline-ultimate_treasure-chest-bold.png"
+                    alt=""
+                    class="chest-icon">
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- LOCKED QUEST -->
+            <div class="locked-quest">
+
+              <div class="quest-icon">
+                <img src="public/tes-punya-kwn/Assets/Vector.png" alt="" class="quest-icon-img">
+              </div>
+
+              <div class="quest-content">
+                <h3>Complete the one on top first</h3>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="daily-quest">
-            <div class="title-top">Daily Quest
+        <!-- MONTHLY CHALLENGE -->
+        <div class="monthly-challenge">
 
-            </div>
+          <h2>
+            Monthly challenges
+            <br>
+            will be open soon!
+          </h2>
 
-            <div class="">
+          <p>
+            Complete monthly challenges to earn exclusive badges.
+          </p>
 
-            </div>
+          <img
+            src="public/tes-punya-kwn/Assets/Coinkuninghijau.png"
+            alt=""
+            class="monthly-badge">
 
-            <div class="">
-                
-            </div>
         </div>
+
+      </div>
 
     </div>
 
-</div>
+  </div>
 
-</div>
+  <script src="DailyQuest.js"></script>
 
-
-
-
-
- 
-
-    
-<script src="DailyQuest.js"></script>
-
-
-    
 </body>
+
 </html>
