@@ -33,8 +33,9 @@ html, body {
   flex-shrink: 0;
   position: relative;
   z-index: 50;
-  /* NO overflow:hidden here — arrow is a sibling */
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  color: inherit;
 }
 
 .sidebar.expanded {
@@ -291,7 +292,7 @@ html, body {
   text-align: center;
 }
 
-/* ===== RIGHT PANEL — flush to right edge ===== */
+/* ===== RIGHT PANEL ===== */
 .right-panel {
   width: 360px;
   flex-shrink: 0;
@@ -437,13 +438,46 @@ html, body {
 .btn:active { transform: scale(0.98); }
 
 .btn-green {
-  background: #80c220;
-  color: #1a2a00;
-  box-shadow: 0 4px 0 #5a8a10;
+  background: #93D333;
+  color: #000;
+  box-shadow: 0 4px 0 #507C1F;
 }
 
 .btn-blue {
-  background: #2eb8f0;
-  color: #003a5a;
-  box-shadow: 0 4px 0 #1a88c0;
+  background: #49C0F8;
+  color: #000;
+  box-shadow: 0 4px 0 #2B6E8D;
+}
+
+/* animasi */
+/* Saat halaman masuk */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Saat halaman keluar */
+@keyframes fadeSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+body {
+  animation: fadeSlideIn 0.35s ease both;
+}
+
+body.page-exit {
+  animation: fadeSlideOut 0.25s ease both;
 }
