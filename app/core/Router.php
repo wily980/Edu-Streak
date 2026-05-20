@@ -32,6 +32,7 @@ public function run()
 
     foreach ($this->routes as $route) {
         $pattern = str_replace('{id}', '([0-9]+)', $route['uri']);
+        $pattern = str_replace('{slug}', '([a-z0-9_-]+)', $pattern); // ← add this line
         $pattern = '#^' . $pattern . '$#';
 
         if (preg_match($pattern, $uri, $matches) && $method === $route['method']) {

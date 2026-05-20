@@ -6,22 +6,30 @@ use App\Core\Router;
 
 $router = new Router();
 
-// Auth routes
+// Auth
 $router->add('GET', '/auth/google', 'AuthController', 'redirectToGoogle');
 $router->add('GET', '/auth/google/callback', 'AuthController', 'handleGoogleCallback');
 
-// Student routes
+// Learn (language picker)
+$router->add('GET', '/learn', 'LanguageController', 'index');
+$router->add('POST', '/learn', 'LanguageController', 'store');
+
+// Shop
+$router->add('GET', '/students/shop', 'ShopController', 'index');
+$router->add('POST', '/shop/buy', 'ShopController', 'buy');
+
+// Students — specific routes BEFORE wildcards
 $router->add('GET', '/students', 'StudentController', 'index');
 $router->add('GET', '/students/create', 'StudentController', 'create');
-$router->add('GET', '/students/{id}', 'StudentController', 'show');
+$router->add('GET', '/students/{slug}/levels', 'StudentController', 'levels');
 $router->add('GET', '/students/{id}/edit', 'StudentController', 'edit');
 $router->add('POST', '/students', 'StudentController', 'store');
 $router->add('PUT', '/students/{id}', 'StudentController', 'update');
 $router->add('DELETE', '/students/{id}', 'StudentController', 'destroy');
-$router->add('GET', '/', 'AuthController', 'login'); 
-$router->add('GET', '/learn', 'LanguageController', 'index');
-$router->add('POST', '/learn', 'LanguageController', 'store');
-$router->add('GET', '/students', 'StudentController', 'index');
+$router->add('GET', '/students/{id}', 'StudentController', 'show');
+
+// Landing
+$router->add('GET', '/', 'AuthController', 'login');
 
 $router->run();
 ?>

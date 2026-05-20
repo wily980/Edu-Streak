@@ -18,7 +18,7 @@ class Database
     {
         $stmt = mysqli_prepare($this->connection, $sql);
         if ($params) {
-            $types = str_repeat('s', count($params)); // default all to string
+            $types = str_repeat('s', count($params)); // default buat semua string
             mysqli_stmt_bind_param($stmt, $types, ...$params);
         }
         mysqli_stmt_execute($stmt);
