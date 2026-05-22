@@ -26,8 +26,6 @@ public function run()
 
     // This strips the project folders so the router only sees "/students"
     $uri = str_replace('/Edu_Streak_Lock_in/public', '', $uri);
-    
-    // Clean up slashes
     $uri = '/' . trim($uri, '/');
 
     foreach ($this->routes as $route) {

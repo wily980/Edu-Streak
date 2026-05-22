@@ -20,22 +20,33 @@ class LanguageController
     }
 
     public function store()
-    {
-        $languageId = $_POST['language_id'] ?? null;
-        $userId = $_SESSION['user']['id'] ?? null;
+{
+    $languageId = $_POST['language_id'] ?? null;
+    $userId = $_SESSION['user']['id'] ?? null;
 
-        if (!$languageId || !$userId) {
-            header('Location: /learn');
-            exit;
-        }
-
-        $this->db->execute(
-            "INSERT INTO usr_language_levels (id, user_id, language_id) VALUES (UUID(), ?, ?) 
-             ON DUPLICATE KEY UPDATE language_id = language_id",
-            [$userId, $languageId]
-        );
-
-        header('Location: /students');
+    if (!$languageId || !$userId) {
+        header('Location: /learn');
         exit;
     }
+
+    $this->db->execute(
+        "INSERT INTO usr_language_levels (id, user_id, language_id) VALUES (UUID(), ?, ?) 
+         ON DUPLICATE KEY UPDATE language_id = language_id",
+        [$userId, $languageId]
+    );
+
+    //  maling the language so we can get its slug
+    $language = $this->db->fetchOne(
+        "SELECT * FROM cnt_languages WHERE id = ?",
+        [$languageId]
+    );
+
+    if (!$language) {
+        header('Location: /learn');
+        exit;
+    }
+
+    header('Location: /preference?lang=' . $language['slug']);
+    exit;
+}
 }

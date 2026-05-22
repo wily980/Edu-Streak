@@ -1,4 +1,5 @@
-<?php
+<?php 
+var_dump($tracks);
 // app/views/level/levels.php
 // Variables: $user, $language, $tracks
 if (empty($user)) { header('Location: /'); exit; }
@@ -31,7 +32,7 @@ $positions = [
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title><?= htmlspecialchars($language['name']) ?> Levels - EduStreak</title>
-  <link rel="stylesheet" href="/css/students.css"/>
+  <link rel="stylesheet" href="<?= BASE_URL ?>/css/students.css"/>
 </head>
 <body>
 <div class="app-root">

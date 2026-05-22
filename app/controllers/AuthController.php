@@ -75,7 +75,7 @@ class AuthController
             );
         }
 
-        header('Location: ../../students');
+        header('Location: ../../level');
         exit;
     }
     public function login()

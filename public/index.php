@@ -10,6 +10,14 @@ $router = new Router();
 $router->add('GET', '/auth/google', 'AuthController', 'redirectToGoogle');
 $router->add('GET', '/auth/google/callback', 'AuthController', 'handleGoogleCallback');
 
+// Level
+$router->add('GET', '/level', 'LevelController', 'index');
+
+// Preference
+$router->add('GET',  '/preference', 'PreferenceController', 'index');
+$router->add('POST', '/preference', 'PreferenceController', 'store');
+
+
 // Learn (language picker)
 $router->add('GET', '/learn', 'LanguageController', 'index');
 $router->add('POST', '/learn', 'LanguageController', 'store');

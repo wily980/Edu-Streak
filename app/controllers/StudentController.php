@@ -56,7 +56,7 @@ class StudentController
             [$user['id']]
         );
 
-        require_once '../app/views/students/index.php';
+        require_once '../app/views/Learn/index.php';
     }
 
     // GET /students/{slug}/levels — stage map for a language
