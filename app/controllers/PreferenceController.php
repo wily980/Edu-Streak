@@ -52,7 +52,7 @@ class PreferenceController
         }
     }
 
-    header('Location: /level?lang=' . $slug);
+    header('Location: ' . BASE_URL . '/level?lang=' . $slug);
     exit;
 }
 }

@@ -11,50 +11,50 @@ $langName = htmlspecialchars($language['name'] ?? 'this language');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How well do you know <?= $langName ?>?</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <link rel="stylesheet" href="/css/preferences.css"/>
+    <link rel="stylesheet" href="/Edu_Streak_Lock_in/public/css/preferences.css"/>
 </head>
 <body class="bg">
 
     <header>
         <div class="top">
-            <a href="/learn"><i class="fa-solid fa-x"></i></a>
+            <a href="/Edu_Streak_Lock_in/public/learn"><i class="fa-solid fa-x"></i></a>
         </div>
     </header>
 
     <main>
         <div class="question">
-            <img src="/assets/robot 1.png" alt="robot">
+            <img src="/Edu_Streak_Lock_in/public/assets/robot 1.png" alt="robot">
             <h2>How much do you know about <?= $langName ?>?</h2>
         </div>
 
-        <form action="/preference" method="POST">
+        <form action="/Edu_Streak_Lock_in/public/preference" method="POST">
             <input type="hidden" name="lang" value="<?= htmlspecialchars($slug) ?>">
             <input type="hidden" name="level" id="level-input" value="">
 
             <div class="option">
 
                 <div class="option-text" data-value="1">
-                    <img src="/assets/signal 1.png" alt="level 1">
+                    <img src="/Edu_Streak_Lock_in/public/assets/signal 1.png" alt="level 1">
                     I have no clue gang
                 </div>
 
                 <div class="option-text" data-value="2">
-                    <img src="/assets/signal 2.png" alt="level 2">
+                    <img src="/Edu_Streak_Lock_in/public/assets/signal 2.png" alt="level 2">
                     I know some commonly used <?= $langName ?> tags
                 </div>
 
                 <div class="option-text" data-value="3">
-                    <img src="/assets/signal 3.png" alt="level 3">
+                    <img src="/Edu_Streak_Lock_in/public/assets/signal 3.png" alt="level 3">
                     I can create simple <?= $langName ?> structures
                 </div>
 
                 <div class="option-text" data-value="4">
-                    <img src="/assets/signal 4.png" alt="level 4">
+                    <img src="/Edu_Streak_Lock_in/public/assets/signal 4.png" alt="level 4">
                     I can build pages with various elements
                 </div>
 
                 <div class="option-text" data-value="5">
-                    <img src="/assets/signal 5.png" alt="level 5">
+                    <img src="/Edu_Streak_Lock_in/public/assets/signal 5.png" alt="level 5">
                     I can structure <?= $langName ?> pages effectively
                 </div>
 

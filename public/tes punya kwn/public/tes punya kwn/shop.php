@@ -4,55 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Life - Learning App</title>
-  <link rel="stylesheet" href="stage.css" />
-  <link href="" rel="stylesheet"/>
+  <link rel="stylesheet" href="shop.css" />
+  
 </head>
 <body>
 
-  <!-- LAYOUT ROOT -->
+  <!-- LAYOUT -->
   <div class="app-root">
 
-    <!-- Sidebar (no overflow hidden, arrow is a sibling) -->
+    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
       <div class="logo">
-        <img src="../../tes punya kwn/Assets/Logoutama.png" alt="Logo" class="logo-img">
+        <img src="../../assets/Logoutama.png" alt="Logo" class="logo-img">
       </div>
-        <nav class="nav-items">
-        <div class="nav-item active">
-          <img src="../../tes punya kwn/Assets/icon-box.png" alt="box" class="nav-box-icon">
+      <nav class="nav-items">
+        <div class="nav-item">
+          <img src="../../assets/icon-box.png" alt="box" class="nav-box-icon">
           <span class="nav-label">Home</span>
         </div>
         <div class="nav-item">
-          <img src="../../tes punya kwn/Assets/icon-box.png" alt="box" class="nav-box-icon">
+          <img src="../../assets/icon-box.png" alt="box" class="nav-box-icon">
           <span class="nav-label">Progress</span>
         </div>
-        <div class="nav-item">
-          <img src="../../tes punya kwn/Assets/icon-box.png" alt="box" class="nav-box-icon">
+        <a href="leaderboard.php" class="nav-item">
+          <img src="../../assets/icon-box.png" alt="box" class="nav-box-icon">
           <span class="nav-label">Score</span>
-        </div>
+        </a>
         <div class="nav-item">
-          <img src="../../tes punya kwn/Assets/icon-box.png" alt="box" class="nav-box-icon">
+          <img src="../../assets/icon-box.png" alt="box" class="nav-box-icon">
           <span class="nav-label">Quest</span>
         </div>
-        <div class="nav-item">
-          <img src="../../tes punya kwn/Assets/icon-box.png" alt="box" class="nav-box-icon">
+        <div class="nav-item active">
+          <img src="../../assets/icon-box.png" alt="box" class="nav-box-icon">
           <span class="nav-label">Shop</span>
         </div>
         <div class="nav-item">
-          <img src="../../tes punya kwn/Assets/icon-box.png" alt="box" class="nav-box-icon">
+          <img src="../../assets/icon-box.png" alt="box" class="nav-box-icon">
           <span class="nav-label">Profile</span>
         </div>
         <div class="nav-item">
-          <img src="../../tes punya kwn/Assets/icon-box.png" alt="box" class="nav-box-icon">
+          <img src="../../assets/icon-box.png" alt="box" class="nav-box-icon">
           <span class="nav-label">Other</span>
         </div>
       </nav>
     </aside>
 
-    <!-- Arrow button: OUTSIDE sidebar, attached to its right edge -->
+    <!--Arrow button-->
     <button class="sidebar-arrow" id="sidebarArrow" aria-label="Toggle sidebar">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="arrowSvg" class="arrow-svg">
-        <polyline points="9 18 15 12 9 6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="15 18 9 12 15 6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
 
@@ -63,18 +63,18 @@
       <header class="topbar">
         <div class="topbar-items">
           <div class="topbar-item html5">
-            <img src="../../tes punya kwn/Assets/icon-html.png" alt="html" class="html5-icon">
+            <img src="../../assets/icon-html.png" alt="html" class="html5-icon">
           </div>
           <div class="topbar-item streak">
-            <img src="../../tes punya kwn/Assets/streak-black.png" alt="streak" class="streakblack-icon">
+            <img src="../../assets/streak-black.png" alt="streak" class="streakblack-icon">
             <span class="streak-count">0</span>
           </div>
           <div class="topbar-item coins">
-            <img src="../../tes punya kwn/Assets/coin.png" alt="coin" class="coin-icon">
+            <img src="../../assets/coin.png" alt="coin" class="coin-icon">
             <span class="coin-count">500</span>
           </div>
           <div class="topbar-item hearts">
-            <img src="../../tes punya kwn/Assets/icon-heart.png" alt="heartfull" class="heartfull-icon">
+            <img src="../../assets/icon-heart.png" alt="heartfull" class="heartfull-icon">
           </div>
         </div>
       </header>
@@ -84,67 +84,32 @@
 
         <!-- Left Panel -->
         <div class="left-panel">
-          <div class="container">
+          <h1 class="page-title">Life</h1>
+          <hr class="divider"/>
 
-    <!-- Dots -->
-    <div class="dot" style="top:130px; left:380px;"></div>
-    <div class="dot" style="top:160px; left:355px;"></div>
-    <div class="dot" style="top:180px; left:320px;"></div>
+          <div class="life-card">
+            <div class="heart-icon-wrap">
+              <img src="../../assets/heart1.png" alt="heart" class="heart-icon">
+            </div>
+            <div class="life-text">
+              <h2 class="life-title">Refill Your heart</h2>
+              <p class="life-desc">Get a full heart so that you are not afraid to make mistakes in the lesson.</p>
+            </div>
+            <div class="full-badge">FULL</div>
+          </div>
 
-    <div class="dot" style="top:210px; left:150px;"></div>
-    <div class="dot" style="top:240px; left:130px;"></div>
-    <div class="dot" style="top:275px; left:130px;"></div>
-
-    <div class="dot" style="top:440px; left:130px;"></div>
-    <div class="dot" style="top:480px; left:140px;"></div>
-    <div class="dot" style="top:500px; left:170px;"></div>
-
-    <div class="dot" style="top:600px; left:250px;"></div>
-    <div class="dot" style="top:630px; left:220px;"></div>
-    <div class="dot" style="top:630px; left:180px;"></div>
-
-    <!-- Levels -->
-     <a href="" >
-    <div class="level l1">
-      <div class="stage">☆</div>
-    </div>
-    </a>
-
-    <a href="" >
-    <div class="level-lock l2">
-      <div class="stage">🔒︎</div>
-    </div>
-    </a>
-
-    <a href="" >
-    <div class="level-lock l3">
-      <div class="stage">🔒︎</div>
-    </div>
-    </a>
-
-    <a href="" >
-    <div class="level-lock l4">
-      <div class="stage">🔒︎</div>
-    </div>
-    </a>
-
-    <a href="" >
-    <div class="level-lock l5">
-      <div class="stage">🔒︎</div>
-    </div>
-    </a>   
-
+          <hr class="divider"/>
         </div>
 
         <!-- Right Panel -->
-        <aside class="right-panel" id="right-panel">
+        <aside class="right-panel">
 
           <!-- Today's Quest -->
           <div class="quest-card">
             <h3 class="quest-title">Your Quest for today!</h3>
             <div class="quest-body">
               <div class="quest-lock">
-                <img src="../../tes punya kwn/Assets/Vector.png" alt="Lock">
+                <img src="../../assets/Vector.png" alt="Lock">
               </div>
               <p class="quest-desc">Complete 2 of this question</p>
             </div>
@@ -158,7 +123,7 @@
             </div>
             <div class="quest-body extra-body">
               <div class="bolt-icon">
-                <img src="../../tes punya kwn/Assets/petir.png" alt="petir">
+                <img src="../../assets/petir.png" alt="petir">
               </div>
               <div class="extra-info">
                 <p class="extra-desc">Keep up with your streak 20 times</p>
@@ -190,22 +155,10 @@
           </div>
 
         </aside>
-
-      
-            <!-- Arrow button: OUTSIDE sidebar, attached to its right edge -->
-    <button class="sidebar2-arrow" id="sidebar2Arrow" aria-label="Toggle sidebar2">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="arrow2Svg" class="arrow2-svg">
-        <polyline points="15 18 9 12 15 6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-
-
       </div>
     </div>
   </div>
 
-
-
-  <script src="stage.js"></script>
+  <script src="shop.js"></script>
 </body>
 </html>

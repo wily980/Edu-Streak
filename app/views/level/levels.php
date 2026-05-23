@@ -1,5 +1,4 @@
 <?php 
-var_dump($tracks);
 // app/views/level/levels.php
 // Variables: $user, $language, $tracks
 if (empty($user)) { header('Location: /'); exit; }
@@ -40,7 +39,7 @@ $positions = [
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
     <div class="logo">
-      <img src="/assets/Logoutama.png" alt="EduStreak" class="logo-img">
+      <img src="/Edu_Streak_Lock_in/public/assets/Logoutama.png" alt="EduStreak" class="logo-img">
     </div>
     <nav class="nav-items">
       <?php
@@ -57,7 +56,7 @@ $positions = [
         $active = str_starts_with($currentPath, $link['href']) ? 'active' : '';
       ?>
       <a href="<?= htmlspecialchars($link['href']) ?>" class="nav-item <?= $active ?>">
-        <img src="/assets/icon-box.png" alt="<?= htmlspecialchars($link['label']) ?>" class="nav-box-icon">
+        <img src="/Edu_Streak_Lock_in/public/assets/icon-box.png" alt="<?= htmlspecialchars($link['label']) ?>" class="nav-box-icon">
         <span class="nav-label"><?= htmlspecialchars($link['label']) ?></span>
       </a>
       <?php endforeach; ?>
@@ -78,18 +77,18 @@ $positions = [
     <header class="topbar">
       <div class="topbar-items">
         <div class="topbar-item">
-          <img src="/assets/icon-html.png" alt="html" class="html5-icon">
+          <img src="/Edu_Streak_Lock_in/public/assets/icon-html.png" alt="html" class="html5-icon">
         </div>
         <div class="topbar-item">
-          <img src="/assets/streak-black.png" alt="streak" class="streakblack-icon">
+          <img src="/Edu_Streak_Lock_in/public/assets/streak-black.png" alt="streak" class="streakblack-icon">
           <span class="streak-count"><?= $streak ?></span>
         </div>
         <div class="topbar-item">
-          <img src="/assets/coin.png" alt="gems" class="coin-icon">
+          <img src="/Edu_Streak_Lock_in/public/assets/coin.png" alt="gems" class="coin-icon">
           <span class="coin-count"><?= $gems ?></span>
         </div>
         <div class="topbar-item">
-          <img src="/assets/icon-heart.png" alt="hearts" class="heartfull-icon">
+          <img src="/Edu_Streak_Lock_in/public/assets/icon-heart.png" alt="hearts" class="heartfull-icon">
           <span class="streak-count"><?= $hearts ?>/5</span>
         </div>
       </div>
@@ -102,7 +101,7 @@ $positions = [
       <div class="left-panel">
 
         <div class="level-header">
-          <a href="/learn" class="back-link">← Back</a>
+          <a href="/Edu_Streak_Lock_in/public/learn" class="back-link">← Back</a>
           <div class="level-lang-info">
             <img src="<?= htmlspecialchars($language['icon_url'] ?? '') ?>"
                  alt="<?= htmlspecialchars($language['name']) ?>"
@@ -157,7 +156,7 @@ $positions = [
             ?>
 
             <?php if ($isOpen): ?>
-              <a href="/students/<?= htmlspecialchars($language['slug']) ?>/tracks/<?= htmlspecialchars($track['id']) ?>"
+              <a href="/Edu_Streak_Lock_in/public/students/<?= htmlspecialchars($language['slug']) ?>/tracks/<?= htmlspecialchars($track['id']) ?>"
                  class="stage-node open <?= $done ? 'done' : '' ?>"
                  style="<?= $style ?>">
                 <span class="stage-icon"><?= $done ? '★' : '☆' ?></span>
@@ -189,7 +188,7 @@ $positions = [
           <h3 class="quest-title">Your Quest for today!</h3>
           <div class="quest-body">
             <div class="quest-lock">
-              <img src="/assets/Vector.png" alt="Lock">
+              <img src="/Edu_Streak_Lock_in/public/assets/Vector.png" alt="Lock">
             </div>
             <p class="quest-desc">Complete 2 of this question</p>
           </div>
@@ -202,7 +201,7 @@ $positions = [
           </div>
           <div class="quest-body extra-body">
             <div class="bolt-icon">
-              <img src="/assets/petir.png" alt="petir">
+              <img src="/Edu_Streak_Lock_in/public/assets/petir.png" alt="petir">
             </div>
             <div class="extra-info">
               <p class="extra-desc">Keep up with your streak 20 times</p>
@@ -230,13 +229,13 @@ $positions = [
         <div class="quest-card profile-card">
           <img src="<?= htmlspecialchars($user['avatar_url'] ?? '') ?>" alt="avatar" class="profile-avatar">
           <p class="profile-text"><?= htmlspecialchars($user['name'] ?? $user['username']) ?></p>
-          <a href="/students/profile" class="btn btn-blue">View Profile</a>
+          <a href="/Edu_Streak_Lock_in/public/students/profile" class="btn btn-blue">View Profile</a>
         </div>
         <?php else: ?>
         <div class="quest-card profile-card">
           <p class="profile-text">Make your profile to keep your streak!</p>
-          <a href="/students/profile" class="btn btn-green">Make profile</a>
-          <a href="/auth/google" class="btn btn-blue">Sign in with Google</a>
+          <a href="/Edu_Streak_Lock_in/public/students/profile" class="btn btn-green">Make profile</a>
+          <a href="/Edu_Streak_Lock_in/public/auth/google" class="btn btn-blue">Sign in with Google</a>
         </div>
         <?php endif; ?>
 
@@ -246,6 +245,6 @@ $positions = [
   </div>
 </div>
 
-<script src="/js/students.js"></script>
+<script src="/Edu_Streak_Lock_in/public/js/students.js"></script>
 </body>
 </html>

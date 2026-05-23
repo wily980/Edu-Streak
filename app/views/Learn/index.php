@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . '/../../config/app.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I want to Learn - Edustreak</title>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Spectral:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/output.css">
+    <link rel="stylesheet" href="/Edu_Streak_Lock_in/public/css/output.css">
 </head>
 <body>
 
     <header class="navbar">
         <div class="logo">
-            <img src="/assets/Logoutama.png" alt="logo">
+            <img src="/Edu_Streak_Lock_in/public/assets/Logoutama.png" alt="logo">
             <span>Edustreak</span>
         </div>
         <div class="language">
@@ -22,7 +24,7 @@
     <section class="learn-section">
         <h1 class="learn-title">I want to Learn..</h1>
 
-        <form method="POST" action="/learn">
+        <form method="POST" action="/Edu_Streak_Lock_in/public/learn">
             <div class="language-grid">
                 <?php if (!empty($languages) && is_array($languages)): ?>
                     <?php foreach ($languages as $lang): ?>
@@ -34,7 +36,7 @@
                             value="<?= $lang['id'] ?>"
                             hidden
                         >
-                        <img src="<?= $lang['icon_url'] ?>" alt="<?= $lang['name'] ?>">
+                        <img src="<?= BASE_URL . $lang['icon_url'] ?>" alt="<?= $lang['name'] ?>">
                         <h3><?= $lang['name'] ?></h3>
                     </label>
                     <?php endforeach; ?>

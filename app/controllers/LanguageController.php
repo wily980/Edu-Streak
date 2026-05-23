@@ -46,7 +46,7 @@ class LanguageController
         exit;
     }
 
-    header('Location: /preference?lang=' . $language['slug']);
+    header('Location: ' . BASE_URL . '/preference?lang=' . $language['slug']);
     exit;
 }
 }

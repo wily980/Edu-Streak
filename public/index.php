@@ -10,6 +10,9 @@ $router = new Router();
 $router->add('GET', '/auth/google', 'AuthController', 'redirectToGoogle');
 $router->add('GET', '/auth/google/callback', 'AuthController', 'handleGoogleCallback');
 
+// Leaderboard
+$router->add('GET', '/leaderboard', 'LeaderboardController', 'index');
+
 // Level
 $router->add('GET', '/level', 'LevelController', 'index');
 

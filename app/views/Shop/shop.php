@@ -15,7 +15,7 @@ $heartsFull  = $hearts >= $maxHearts;
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shop - EduStreak</title>
-  <link rel="stylesheet" href="/css/shop.css"/>
+  <link rel="stylesheet" href="/Edu_Streak_Lock_in/public/css/shop.css"/>
 </head>
 <body>
 
@@ -24,7 +24,7 @@ $heartsFull  = $hearts >= $maxHearts;
   <!-- ── SIDEBAR cuy -->
   <aside class="sidebar" id="sidebar">
     <div class="logo">
-      <img src="/assets/Logoutama.png" alt="EduStreak" class="logo-img">
+      <img src="/Edu_Streak_Lock_in/public/assets/Logoutama.png" alt="EduStreak" class="logo-img">
     </div>
     <nav class="nav-items">
       <?php
@@ -62,18 +62,18 @@ $heartsFull  = $hearts >= $maxHearts;
     <header class="topbar">
       <div class="topbar-items">
         <div class="topbar-item html5">
-          <img src="/assets/icon-html.png" alt="html" class="html5-icon">
+          <img src="/Edu_Streak_Lock_in/public/assets/icon-html.png" alt="html" class="html5-icon">
         </div>
         <div class="topbar-item streak">
-          <img src="/assets/streak-black.png" alt="streak" class="streakblack-icon">
+          <img src="/Edu_Streak_Lock_in/public/assets/streak-black.png" alt="streak" class="streakblack-icon">
           <span class="streak-count" id="streakCount"><?= $streak ?></span>
         </div>
         <div class="topbar-item coins">
-          <img src="/assets/coin.png" alt="gems" class="coin-icon">
+          <img src="/Edu_Streak_Lock_in/public/assets/coin.png" alt="gems" class="coin-icon">
           <span class="coin-count" id="gemCount"><?= $gems ?></span>
         </div>
         <div class="topbar-item hearts">
-          <img src="/assets/icon-heart.png" alt="hearts" class="heartfull-icon">
+          <img src="/Edu_Streak_Lock_in/public/assets/icon-heart.png" alt="hearts" class="heartfull-icon">
           <span class="heart-count" id="heartCount"><?= $hearts ?>/<?= $maxHearts ?></span>
         </div>
       </div>
@@ -117,7 +117,7 @@ $heartsFull  = $hearts >= $maxHearts;
                   data-cost="<?= (int)$item['cost'] ?>"
                   <?= $canAfford ? '' : 'disabled' ?>
                 >
-                  <img src="/assets/coin.png" alt="gem" class="btn-gem-icon">
+                  <img src="/Edu_Streak_Lock_in/public/assets/coin.png" alt="gem" class="btn-gem-icon">
                   <?= (int)$item['cost'] ?>
                 </button>
               <?php endif; ?>
@@ -137,7 +137,7 @@ $heartsFull  = $hearts >= $maxHearts;
           <h3 class="quest-title">Your Quest for today!</h3>
           <div class="quest-body">
             <div class="quest-lock">
-              <img src="/assets/Vector.png" alt="Lock">
+              <img src="/Edu_Streak_Lock_in/public/assets/Vector.png" alt="Lock">
             </div>
             <p class="quest-desc">Complete 2 of this question</p>
           </div>
@@ -151,7 +151,7 @@ $heartsFull  = $hearts >= $maxHearts;
           </div>
           <div class="quest-body extra-body">
             <div class="bolt-icon">
-              <img src="/assets/petir.png" alt="petir">
+              <img src="/Edu_Streak_Lock_in/public/assets/petir.png" alt="petir">
             </div>
             <div class="extra-info">
               <p class="extra-desc">Keep up with your streak 20 times</p>
@@ -179,14 +179,14 @@ $heartsFull  = $hearts >= $maxHearts;
         <?php if (empty($_SESSION['user']['google_id'])): ?>
         <div class="quest-card profile-card">
           <p class="profile-text">Make your profile to keep your streak!</p>
-          <a href="/students/profile" class="btn btn-green">Make profile</a>
-          <a href="/auth/google" class="btn btn-blue">Sign in with Google</a>
+          <a href="/Edu_Streak_Lock_in/public/students/profile" class="btn btn-green">Make profile</a>
+          <a href="/Edu_Streak_Lock_in/public/auth/google" class="btn btn-blue">Sign in with Google</a>
         </div>
         <?php else: ?>
         <div class="quest-card profile-card">
           <img src="<?= htmlspecialchars($user['avatar_url'] ?? '') ?>" alt="avatar" class="profile-avatar">
           <p class="profile-text"><?= htmlspecialchars($user['name'] ?? $user['username']) ?></p>
-          <a href="/students/profile" class="btn btn-blue">View Profile</a>
+          <a href="/Edu_Streak_Lock_in/public/students/profile" class="btn btn-blue">View Profile</a>
         </div>
         <?php endif; ?>
 
@@ -198,6 +198,6 @@ $heartsFull  = $hearts >= $maxHearts;
 <!-- Toast notification -->
 <div class="toast" id="toast"></div>
 
-<script src="/js/shop.js"></script>
+<script src="/Edu_Streak_Lock_in/public/js/shop.js"></script>
 </body>
 </html>

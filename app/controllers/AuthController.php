@@ -75,7 +75,7 @@ class AuthController
             );
         }
 
-        header('Location: ../../level');
+        header('Location: ' . BASE_URL . '/learn');
         exit;
     }
     public function login()
