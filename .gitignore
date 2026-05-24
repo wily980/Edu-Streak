@@ -13,4 +13,4 @@ Thumbs.db
 # public/css/output.css
 app/config/app.php
 vendor/
-node_modules/
+node_modules/"app/config/app.php" 
