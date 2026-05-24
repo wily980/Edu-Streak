@@ -1,17 +1,21 @@
 <?php
-namespace App\Core;
+namespace App\Controllers;
+require_once '../app/core/Database.php';
+use App\Core\Database;
 
-class controllers
+class StudentController
 {
-    public function view(string $view, array $data = [])
-    {
-        extract($data);
-        $view = str_replace(
-            '.', '/', $view
-            );
-        $content = "../app/views/{$view}.php";
+    private Database $db;
 
-        require_once '../app/views/layouts/app.php';
+    public function __construct()
+    {
+        $this->db = new Database();
+    }
+
+    public function index()
+    {
+        $students = $this->db->fetchAll("SELECT * FROM usr_users");
+        require_once '../app/views/students/index.php';
     }
 }
 ?>
