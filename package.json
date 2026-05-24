@@ -4,11 +4,9 @@
   "description": "\"# Edu-Streak\"",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "start": "node index.js",
-    "build": "tailwindcss -i ./app/Resources/css/input.css -o ./public/css/output.css --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "dev": "tailwindcss -i ./app/Resources/css/input.css -o ./public/css/output.css --watch",
+    "build": "tailwindcss -i ./app/Resources/css/input.css -o ./public/css/output.css"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wily980/Edu-Streak.git"
@@ -21,7 +19,7 @@
   },
   "homepage": "https://github.com/wily980/Edu-Streak#readme",
   "devDependencies": {
+    "@tailwindcss/cli": "^4.2.4",
     "tailwindcss": "^4.2.4"
   }
-  
 }
