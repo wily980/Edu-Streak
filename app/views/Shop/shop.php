@@ -1,8 +1,7 @@
 <?php
 // app/views/Shop/shop.php
-// Variables available: $user (array), $items (array of shp_items rows)
-if (empty($user)) { header('Location: /auth/login'); exit; }
-
+if (empty($_SESSION['user'])) { header('Location: ' . BASE_URL . '/'); exit; }
+$user        = $_SESSION['user'];
 $hearts      = (int)($user['hearts']  ?? 5);
 $gems        = (int)($user['gems']    ?? 0);
 $streak      = (int)($user['streak']  ?? 0);
@@ -15,74 +14,70 @@ $heartsFull  = $hearts >= $maxHearts;
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shop - EduStreak</title>
-  <link rel="stylesheet" href="/Edu_Streak_Lock_in/public/css/shop.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/css/shop.css"/>
 </head>
 <body>
-
 <div class="app-root">
 
-  <!-- ── SIDEBAR cuy -->
   <aside class="sidebar" id="sidebar">
     <div class="logo">
-      <img src="/Edu_Streak_Lock_in/public/assets/Logoutama.png" alt="EduStreak" class="logo-img">
+      <img src="<?= BASE_URL ?>/assets/Logoutama.png" alt="EduStreak" class="logo-img">
     </div>
     <nav class="nav-items">
-      <?php
-      $navLinks = [
-        ['label' => 'Home',     'href' => '/students',          'icon' => '/assets/icon-box.png'],
-        ['label' => 'Progress', 'href' => '/students/progress', 'icon' => '/assets/icon-box.png'],
-        ['label' => 'Score',    'href' => '/students/score',    'icon' => '/assets/icon-box.png'],
-        ['label' => 'Quest',    'href' => '/students/quest',    'icon' => '/assets/icon-box.png'],
-        ['label' => 'Shop',     'href' => '/students/shop',     'icon' => '/assets/icon-box.png'],
-        ['label' => 'Profile',  'href' => '/students/profile',  'icon' => '/assets/icon-box.png'],
-      ];
-      $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-      foreach ($navLinks as $link):
-        $active = ($currentPath === $link['href']) ? 'active' : '';
-      ?>
-      <a href="<?= htmlspecialchars($link['href']) ?>" class="nav-item <?= $active ?>">
-        <img src="<?= htmlspecialchars($link['icon']) ?>" alt="<?= htmlspecialchars($link['label']) ?>" class="nav-box-icon">
-        <span class="nav-label"><?= htmlspecialchars($link['label']) ?></span>
-      </a>
-      <?php endforeach; ?>
+        <?php
+        $homeHref = isset($_SESSION['last_lang'])
+            ? BASE_URL . '/level?lang=' . $_SESSION['last_lang']
+            : BASE_URL . '/level';
+        $navLinks = [
+            ['label' => 'Home',        'href' => $homeHref,                        'icon' => 'home.png'],
+            ['label' => 'History',        'href' => BASE_URL . '/History',               'icon' => 'history.png'],
+            ['label' => 'Leaderboard', 'href' => BASE_URL . '/leaderboard',        'icon' => 'trophy.png'],
+            ['label' => 'Quest',       'href' => BASE_URL . '/quest',              'icon' => 'Tresure box.png'],
+            ['label' => 'Shop',        'href' => BASE_URL . '/students/shop',      'icon' => 'shop.png'],
+            ['label' => 'Profile',     'href' => BASE_URL . '/profile',            'icon' => 'Profile.png'],
+        ];
+        $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        foreach ($navLinks as $link):
+            $slug   = str_replace(BASE_URL, '', $link['href']);
+            $active = str_starts_with($currentPath, $slug) ? 'active' : '';
+        ?>
+        <a href="<?= htmlspecialchars($link['href']) ?>" class="nav-item <?= $active ?>">
+            <img src="<?= BASE_URL ?>/assets/<?= htmlspecialchars($link['icon']) ?>" alt="<?= htmlspecialchars($link['label']) ?>" class="nav-box-icon">
+            <span class="nav-label"><?= htmlspecialchars($link['label']) ?></span>
+        </a>
+        <?php endforeach; ?>
     </nav>
   </aside>
 
-  <!--sidebar togle le-->
   <button class="sidebar-arrow" id="sidebarArrow" aria-label="Toggle sidebar">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="arrowSvg" class="arrow-svg">
+    <svg viewBox="0 0 24 24" id="arrowSvg" class="arrow-svg">
       <polyline points="15 18 9 12 15 6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
 
-  <!-- ── MAIN WRAPPER ─────────────────────────────────────────────── -->
   <div class="main-wrapper">
-
-    <!-- TOP BAR -->
     <header class="topbar">
       <div class="topbar-items">
         <div class="topbar-item html5">
-          <img src="/Edu_Streak_Lock_in/public/assets/icon-html.png" alt="html" class="html5-icon">
+          <img src="<?= BASE_URL ?>/assets/icon-html.png" alt="html" class="html5-icon">
         </div>
         <div class="topbar-item streak">
-          <img src="/Edu_Streak_Lock_in/public/assets/streak-black.png" alt="streak" class="streakblack-icon">
+          <img src="<?= BASE_URL ?>/assets/streak-black.png" alt="streak" class="streakblack-icon">
           <span class="streak-count" id="streakCount"><?= $streak ?></span>
         </div>
         <div class="topbar-item coins">
-          <img src="/Edu_Streak_Lock_in/public/assets/coin.png" alt="gems" class="coin-icon">
+          <img src="<?= BASE_URL ?>/assets/coin.png" alt="gems" class="coin-icon">
           <span class="coin-count" id="gemCount"><?= $gems ?></span>
         </div>
         <div class="topbar-item hearts">
-          <img src="/Edu_Streak_Lock_in/public/assets/icon-heart.png" alt="hearts" class="heartfull-icon">
+          <img src="<?= BASE_URL ?>/assets/icon-heart.png" alt="hearts" class="heartfull-icon">
           <span class="heart-count" id="heartCount"><?= $hearts ?>/<?= $maxHearts ?></span>
         </div>
       </div>
     </header>
 
-    <!-- CONTENT AREA -->
     <div class="content-area">
-
-      <!-- ── LEFT PANEL (shop items) ──────────────────────────────── -->
       <div class="left-panel">
         <h1 class="page-title">Shop</h1>
         <hr class="divider"/>
@@ -91,21 +86,24 @@ $heartsFull  = $hearts >= $maxHearts;
           <p class="empty-msg">No items available right now. Check back soon!</p>
         <?php else: ?>
           <?php foreach ($items as $item):
-            $isFull = ($item['type'] === 'heart' && $heartsFull);
+            $isFull    = ($item['type'] === 'heart' && $heartsFull);
             $canAfford = ($gems >= $item['cost']);
           ?>
           <div class="shop-card" data-item-id="<?= htmlspecialchars($item['id']) ?>">
-
             <div class="shop-item-icon">
-              <img src="<?= htmlspecialchars($item['icon_url'] ?? '/assets/heart1.png') ?>"
-                   alt="<?= htmlspecialchars($item['name']) ?>">
+              <?php
+              $icon = match($item['type'] ?? '') {
+                  'heart'  => BASE_URL . '/assets/heart1.png',
+                  'streak' => BASE_URL . '/assets/streak-black.png',
+                  default  => BASE_URL . '/assets/coin.png',
+              };
+              ?>
+              <img src="<?= $icon ?>" alt="<?= htmlspecialchars($item['name']) ?>">
             </div>
-
             <div class="shop-item-info">
               <h2 class="shop-item-title"><?= htmlspecialchars($item['name']) ?></h2>
               <p class="shop-item-desc"><?= htmlspecialchars($item['description'] ?? '') ?></p>
             </div>
-
             <div class="shop-item-action">
               <?php if ($isFull): ?>
                 <div class="full-badge">FULL</div>
@@ -117,41 +115,36 @@ $heartsFull  = $hearts >= $maxHearts;
                   data-cost="<?= (int)$item['cost'] ?>"
                   <?= $canAfford ? '' : 'disabled' ?>
                 >
-                  <img src="/Edu_Streak_Lock_in/public/assets/coin.png" alt="gem" class="btn-gem-icon">
+                  <img src="<?= BASE_URL ?>/assets/coin.png" alt="gem" class="btn-gem-icon">
                   <?= (int)$item['cost'] ?>
                 </button>
               <?php endif; ?>
             </div>
-
           </div>
           <hr class="divider"/>
           <?php endforeach; ?>
         <?php endif; ?>
       </div>
 
-      <!-- ── RIGHT PANEL ──────────────────────────────────────────── -->
       <aside class="right-panel">
-
-        <!-- Today's Quest -->
         <div class="quest-card">
           <h3 class="quest-title">Your Quest for today!</h3>
           <div class="quest-body">
             <div class="quest-lock">
-              <img src="/Edu_Streak_Lock_in/public/assets/Vector.png" alt="Lock">
+              <img src="<?= BASE_URL ?>/assets/Vector.png" alt="Lock">
             </div>
             <p class="quest-desc">Complete 2 of this question</p>
           </div>
         </div>
 
-        <!-- Extra Quest -->
         <div class="quest-card extra-quest-card">
           <div class="extra-quest-header">
             <h3 class="quest-title">Extra Quest</h3>
-            <a href="#" class="lihat-semua">Lihat semua</a>
+            <a href="<?= BASE_URL ?>/quest" class="lihat-semua">Lihat semua</a>
           </div>
           <div class="quest-body extra-body">
             <div class="bolt-icon">
-              <img src="/Edu_Streak_Lock_in/public/assets/petir.png" alt="petir">
+              <img src="<?= BASE_URL ?>/assets/petir.png" alt="petir">
             </div>
             <div class="extra-info">
               <p class="extra-desc">Keep up with your streak 20 times</p>
@@ -175,29 +168,25 @@ $heartsFull  = $hearts >= $maxHearts;
           </div>
         </div>
 
-        <!-- Profile / Auth Card -->
-        <?php if (empty($_SESSION['user']['google_id'])): ?>
-        <div class="quest-card profile-card">
-          <p class="profile-text">Make your profile to keep your streak!</p>
-          <a href="/Edu_Streak_Lock_in/public/students/profile" class="btn btn-green">Make profile</a>
-          <a href="/Edu_Streak_Lock_in/public/auth/google" class="btn btn-blue">Sign in with Google</a>
-        </div>
-        <?php else: ?>
+        <?php if (!empty($_SESSION['user']['google_id'])): ?>
         <div class="quest-card profile-card">
           <img src="<?= htmlspecialchars($user['avatar_url'] ?? '') ?>" alt="avatar" class="profile-avatar">
           <p class="profile-text"><?= htmlspecialchars($user['name'] ?? $user['username']) ?></p>
-          <a href="/Edu_Streak_Lock_in/public/students/profile" class="btn btn-blue">View Profile</a>
+          <a href="<?= BASE_URL ?>/profile" class="btn btn-blue">View Profile</a>
+        </div>
+        <?php else: ?>
+        <div class="quest-card profile-card">
+          <p class="profile-text">Make your profile to keep your streak!</p>
+          <a href="<?= BASE_URL ?>/profile" class="btn btn-green">Make profile</a>
+          <a href="<?= BASE_URL ?>/auth/google" class="btn btn-blue">Sign in with Google</a>
         </div>
         <?php endif; ?>
-
       </aside>
-    </div><!-- /.content-area -->
-  </div><!-- /.main-wrapper -->
-</div><!-- /.app-root -->
+    </div>
+  </div>
+</div>
 
-<!-- Toast notification -->
 <div class="toast" id="toast"></div>
-
-<script src="/Edu_Streak_Lock_in/public/js/shop.js"></script>
+<script src="<?= BASE_URL ?>/js/shop.js"></script>
 </body>
 </html>

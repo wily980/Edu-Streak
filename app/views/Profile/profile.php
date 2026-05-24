@@ -1,6 +1,5 @@
 <?php
 if (empty($_SESSION['user'])) { header('Location: ' . BASE_URL . '/'); exit; }
-
 $u        = $user;
 $name     = htmlspecialchars($u['name'] ?? $u['username']);
 $username = htmlspecialchars($u['username'] ?? '');
@@ -24,90 +23,72 @@ $joined   = !empty($u['created_at']) ? date('F Y', strtotime($u['created_at'])) 
 <body>
 <div class="app-root">
 
-  <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
     <div class="logo">
       <img src="<?= BASE_URL ?>/assets/Logoutama.png" alt="EduStreak" class="logo-img">
     </div>
     <nav class="nav-items">
-      <?php
-      $navLinks = [
-        ['label' => 'Home',        'icon' => 'home',     'href' => BASE_URL . '/students'],
-        ['label' => 'Code',        'icon' => 'code',     'href' => BASE_URL . '/learn'],
-        ['label' => 'Leaderboard', 'icon' => 'trophy',   'href' => BASE_URL . '/leaderboard'],
-        ['label' => 'Quest',       'icon' => 'quest',    'href' => BASE_URL . '/students/quest'],
-        ['label' => 'Shop',        'icon' => 'shop',     'href' => BASE_URL . '/students/shop'],
-        ['label' => 'Profile',     'icon' => 'profile',  'href' => BASE_URL . '/profile'],
-        ['label' => 'More',        'icon' => 'more',     'href' => '#'],
-      ];
-      foreach ($navLinks as $link):
-        $active = str_ends_with($link['href'], '/profile') ? 'active' : '';
-      ?>
-      <a href="<?= $link['href'] ?>" class="nav-item <?= $active ?>">
-        <img src="<?= BASE_URL ?>/assets/icon-box.png" alt="<?= $link['label'] ?>" class="nav-box-icon">
-        <span class="nav-label"><?= $link['label'] ?></span>
-      </a>
-      <?php endforeach; ?>
+        <?php
+        $homeHref = isset($_SESSION['last_lang'])
+            ? BASE_URL . '/level?lang=' . $_SESSION['last_lang']
+            : BASE_URL . '/level';
+        $navLinks = [
+            ['label' => 'Home',        'href' => $homeHref,                        'icon' => 'home.png'],
+            ['label' => 'History',        'href' => BASE_URL . '/History',               'icon' => 'history.png'],
+            ['label' => 'Leaderboard', 'href' => BASE_URL . '/leaderboard',        'icon' => 'trophy.png'],
+            ['label' => 'Quest',       'href' => BASE_URL . '/quest',              'icon' => 'Tresure box.png'],
+            ['label' => 'Shop',        'href' => BASE_URL . '/students/shop',      'icon' => 'shop.png'],
+            ['label' => 'Profile',     'href' => BASE_URL . '/profile',            'icon' => 'Profile.png'],
+        ];
+        $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        foreach ($navLinks as $link):
+            $slug   = str_replace(BASE_URL, '', $link['href']);
+            $active = str_starts_with($currentPath, $slug) ? 'active' : '';
+        ?>
+        <a href="<?= htmlspecialchars($link['href']) ?>" class="nav-item <?= $active ?>">
+            <img src="<?= BASE_URL ?>/assets/<?= htmlspecialchars($link['icon']) ?>" alt="<?= htmlspecialchars($link['label']) ?>" class="nav-box-icon">
+            <span class="nav-label"><?= htmlspecialchars($link['label']) ?></span>
+        </a>
+        <?php endforeach; ?>
     </nav>
   </aside>
 
-  <!-- SIDEBAR ARROW -->
   <button class="sidebar-arrow" id="sidebarArrow">
     <svg viewBox="0 0 24 24" class="arrow-svg">
       <polyline points="15 18 9 12 15 6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   </button>
 
-  <!-- MAIN WRAPPER -->
   <div class="main-wrapper">
-
-    <!-- LEFT: Profile card -->
     <div class="left-panel">
       <div class="profile-card">
-
-        <!-- Banner -->
         <div class="banner" style="<?= $banner ? 'background-image: url(' . $banner . ')' : '' ?>">
           <button class="edit-btn" id="editBtn" title="Edit profile">✏</button>
         </div>
-
-
-      <div class="avatar-row">
-        <div class="avatar-wrap">
-          <?php if ($avatar): ?>
-            <img src="<?= $avatar ?>" alt="<?= $name ?>" class="avatar-img">
-          <?php else: ?>
-            <div class="avatar-placeholder"><?= strtoupper(substr($name, 0, 1)) ?></div>
-          <?php endif; ?>
+        <div class="avatar-row">
+          <div class="avatar-wrap">
+            <?php if ($avatar): ?>
+              <img src="<?= $avatar ?>" alt="<?= $name ?>" class="avatar-img">
+            <?php else: ?>
+              <div class="avatar-placeholder"><?= strtoupper(substr($name, 0, 1)) ?></div>
+            <?php endif; ?>
+          </div>
         </div>
-      </div>
-
-        <!-- Info -->
         <div class="profile-info">
           <h2 class="profile-name"><?= $name ?></h2>
           <p class="profile-username"><?= $username ?></p>
-          <?php if ($joined): ?>
-            <p class="profile-joined">Joined at <?= $joined ?></p>
-          <?php endif; ?>
-          <?php if ($bio): ?>
-            <p class="profile-bio"><?= $bio ?></p>
-          <?php endif; ?>
-
+          <?php if ($joined): ?><p class="profile-joined">Joined at <?= $joined ?></p><?php endif; ?>
+          <?php if ($bio): ?><p class="profile-bio"><?= $bio ?></p><?php endif; ?>
           <div class="follow-row">
             <span class="follow-item">Follower <strong>0</strong></span>
             <span class="follow-item">Following <strong>0</strong></span>
           </div>
-
-          <!-- Languages -->
           <div class="lang-badges">
             <?php foreach ($languages as $lang): ?>
-              <img src="<?= BASE_URL . $lang['icon_url'] ?>" 
-                   alt="<?= htmlspecialchars($lang['name']) ?>"
-                   class="lang-badge" title="<?= htmlspecialchars($lang['name']) ?>">
+              <img src="<?= BASE_URL . $lang['icon_url'] ?>" alt="<?= htmlspecialchars($lang['name']) ?>" class="lang-badge" title="<?= htmlspecialchars($lang['name']) ?>">
             <?php endforeach; ?>
           </div>
         </div>
-
-        <!-- Stats -->
         <div class="stats-section">
           <h3 class="stats-title">Statistik</h3>
           <div class="stats-grid">
@@ -129,13 +110,10 @@ $joined   = !empty($u['created_at']) ? date('F Y', strtotime($u['created_at'])) 
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- RIGHT: Quest panel -->
     <aside class="right-panel">
-      <!-- Topbar -->
       <div class="topbar">
         <div class="topbar-items">
           <div class="topbar-item">
@@ -169,7 +147,7 @@ $joined   = !empty($u['created_at']) ? date('F Y', strtotime($u['created_at'])) 
       <div class="quest-card extra-quest-card">
         <div class="extra-quest-header">
           <h3 class="quest-title">Extra Quest</h3>
-          <a href="#" class="lihat-semua">Lihat semua</a>
+          <a href="<?= BASE_URL ?>/quest" class="lihat-semua">Lihat semua</a>
         </div>
         <div class="quest-body extra-body">
           <div class="bolt-icon">
@@ -186,7 +164,6 @@ $joined   = !empty($u['created_at']) ? date('F Y', strtotime($u['created_at'])) 
           </div>
         </div>
       </div>
-
     </aside>
   </div>
 </div>
@@ -200,19 +177,14 @@ $joined   = !empty($u['created_at']) ? date('F Y', strtotime($u['created_at'])) 
     </div>
     <form action="<?= BASE_URL ?>/profile/edit" method="POST" enctype="multipart/form-data">
       <div class="modal-body">
-
         <label class="form-label">Banner</label>
         <input type="file" name="banner" accept="image/*" class="form-file">
-
         <label class="form-label">Avatar</label>
         <input type="file" name="avatar" accept="image/*" class="form-file">
-
         <label class="form-label">Username</label>
         <input type="text" name="username" value="<?= $username ?>" class="form-input" placeholder="Username">
-
         <label class="form-label">Bio</label>
         <textarea name="bio" class="form-textarea" placeholder="Tell something about yourself..."><?= $bio ?></textarea>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-cancel" id="modalCancel">Cancel</button>
@@ -229,18 +201,14 @@ arrowBtn.addEventListener('click', () => {
   sidebar.classList.toggle('expanded');
   arrowBtn.classList.toggle('expanded');
 });
-
-// Modal
 const editBtn      = document.getElementById('editBtn');
 const modalOverlay = document.getElementById('modalOverlay');
 const modalClose   = document.getElementById('modalClose');
 const modalCancel  = document.getElementById('modalCancel');
-
 editBtn.addEventListener('click', () => modalOverlay.classList.add('open'));
 modalClose.addEventListener('click', () => modalOverlay.classList.remove('open'));
 modalCancel.addEventListener('click', () => modalOverlay.classList.remove('open'));
 modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) modalOverlay.classList.remove('open'); });
 </script>
-
 </body>
 </html>

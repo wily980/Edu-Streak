@@ -26,16 +26,19 @@ $trackName = $track['title'] ?? '';
     <nav class="nav-items">
       <?php
       $navLinks = [
-        ['label' => 'Home',        'href' => BASE_URL . '/students'],
-        ['label' => 'Code',        'href' => BASE_URL . '/learn'],
+        ['label' => 'Home', 'href' => BASE_URL . '/students'],
+        ['label' => 'Code',        'href' => BASE_URL . '/'],
         ['label' => 'Leaderboard', 'href' => BASE_URL . '/leaderboard'],
-        ['label' => 'Quest',       'href' => BASE_URL . '/students/quest'],
+        ['label' => 'Quest',       'href' => BASE_URL . '/quest'],
         ['label' => 'Shop',        'href' => BASE_URL . '/students/shop'],
         ['label' => 'Profile',     'href' => BASE_URL . '/profile'],
       ];
+      $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
       foreach ($navLinks as $link):
+        $slug   = str_replace(BASE_URL, '', $link['href']);
+        $active = str_starts_with($currentPath, $slug) ? 'active' : '';
       ?>
-      <a href="<?= $link['href'] ?>" class="nav-item">
+      <a href="<?= $link['href'] ?>" class="nav-item <?= $active ?>">
         <img src="<?= BASE_URL ?>/assets/icon-box.png" alt="<?= $link['label'] ?>" class="nav-box-icon">
         <span class="nav-label"><?= $link['label'] ?></span>
       </a>
@@ -57,7 +60,6 @@ $trackName = $track['title'] ?? '';
     <div class="lesson-panel">
 
       <?php if (empty($questions)): ?>
-        <!-- No questions yet -->
         <div class="empty-state">
           <div class="empty-icon">📭</div>
           <h2>No questions here yet!</h2>
@@ -101,7 +103,7 @@ $trackName = $track['title'] ?? '';
           <input type="hidden" name="total"      value="<?= $totalQ ?>">
 
           <?php foreach ($questions as $qi => $q): ?>
-          <div class="question-slide <?= $qi === 0 ? 'active' : '' ?>" 
+          <div class="question-slide <?= $qi === 0 ? 'active' : '' ?>"
                data-index="<?= $qi ?>"
                data-correct="<?php
                  foreach ($q['options'] as $opt) {
@@ -114,7 +116,6 @@ $trackName = $track['title'] ?? '';
             <div class="question-box">
               <div class="question-label">Pick the correct answer</div>
               <h2 class="question-text"><?= htmlspecialchars($q['question_text']) ?></h2>
-
               <?php if (!empty($q['code_snippet'])): ?>
               <pre class="code-snippet"><code><?= htmlspecialchars($q['code_snippet']) ?></code></pre>
               <?php endif; ?>
@@ -122,15 +123,12 @@ $trackName = $track['title'] ?? '';
 
             <div class="options-grid">
               <?php foreach ($q['options'] as $opt): ?>
-              <button type="button"
-                      class="option-btn"
-                      data-id="<?= htmlspecialchars($opt['id']) ?>">
+              <button type="button" class="option-btn" data-id="<?= htmlspecialchars($opt['id']) ?>">
                 <?= htmlspecialchars($opt['text']) ?>
               </button>
               <?php endforeach; ?>
             </div>
 
-            <!-- Feedback bar -->
             <div class="feedback-bar" id="feedback-<?= $qi ?>">
               <div class="feedback-content">
                 <span class="feedback-icon"></span>
@@ -178,7 +176,7 @@ $trackName = $track['title'] ?? '';
       <div class="quest-card">
         <div class="extra-quest-header">
           <h3 class="quest-title">Extra Quest</h3>
-          <a href="#" class="lihat-semua">Lihat semua</a>
+          <a href="<?= BASE_URL ?>/quest" class="lihat-semua">Lihat semua</a>
         </div>
         <div class="quest-body extra-body">
           <div class="bolt-icon"><img src="<?= BASE_URL ?>/assets/petir.png" alt="petir"></div>
@@ -206,19 +204,16 @@ arrowBtn.addEventListener('click', () => {
   arrowBtn.classList.toggle('expanded');
 });
 
-// ===== LESSON ENGINE =====
-const slides      = document.querySelectorAll('.question-slide');
-const progressFill= document.getElementById('progressFill');
-const scoreInput  = document.getElementById('scoreInput');
-const totalQ      = slides.length;
-let currentIdx    = 0;
-let score         = 0;
+const slides       = document.querySelectorAll('.question-slide');
+const progressFill = document.getElementById('progressFill');
+const scoreInput   = document.getElementById('scoreInput');
+const totalQ       = slides.length;
+let currentIdx     = 0;
+let score          = 0;
 
 function updateProgress() {
-  const pct = (currentIdx / totalQ) * 100;
-  progressFill.style.width = pct + '%';
+  progressFill.style.width = (currentIdx / totalQ) * 100 + '%';
 }
-
 function showSlide(idx) {
   slides.forEach(s => s.classList.remove('active'));
   if (slides[idx]) slides[idx].classList.add('active');
@@ -228,26 +223,21 @@ function showSlide(idx) {
 slides.forEach((slide, idx) => {
   const correctId = slide.dataset.correct;
   const optBtns   = slide.querySelectorAll('.option-btn');
-  const feedback   = document.getElementById('feedback-' + idx);
-  const nextBtn    = document.getElementById('next-' + idx);
-  let answered     = false;
+  const feedback  = document.getElementById('feedback-' + idx);
+  const nextBtn   = document.getElementById('next-' + idx);
+  let answered    = false;
 
   optBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       if (answered) return;
       answered = true;
-
       const isCorrect = btn.dataset.id === correctId;
-
-      // Style options
       optBtns.forEach(b => {
         b.classList.remove('selected','correct','wrong');
         if (b.dataset.id === correctId) b.classList.add('correct');
       });
       if (!isCorrect) btn.classList.add('wrong');
       btn.classList.add('selected');
-
-      // Show feedback
       const icon = feedback.querySelector('.feedback-icon');
       const text = feedback.querySelector('.feedback-text');
       if (isCorrect) {
@@ -269,11 +259,8 @@ slides.forEach((slide, idx) => {
       currentIdx++;
       showSlide(currentIdx);
     } else {
-      // Last question — submit form
       progressFill.style.width = '100%';
-      setTimeout(() => {
-        document.getElementById('lessonForm').submit();
-      }, 400);
+      setTimeout(() => { document.getElementById('lessonForm').submit(); }, 400);
     }
   });
 });

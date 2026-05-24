@@ -26,9 +26,38 @@ class LevelController
         $slug   = $_GET['lang'] ?? null;
 
         if (!$slug) {
-            header('Location: /learn');
-            exit;
+            // Only use session if it's a valid programming language slug
+            $validSlugs = ['cpp','csharp','css','html','java','javascript','php','python'];
+
+            if (!empty($_SESSION['last_lang']) && in_array($_SESSION['last_lang'], $validSlugs)) {
+                $slug = $_SESSION['last_lang'];
+            } else {
+                // Clear bad session value (e.g. 'english')
+                unset($_SESSION['last_lang']);
+
+                // Get last language from DB progress
+                $lastProgress = $this->db->fetchOne(
+                    "SELECT l.slug FROM cnt_languages l
+                     JOIN cnt_tracks t ON t.language_id = l.id
+                     JOIN cnt_lessons ls ON ls.track_id = t.id
+                     JOIN prg_lesson_progress plp ON plp.lesson_id = ls.id
+                     WHERE plp.user_id = ?
+                     ORDER BY plp.completed_at DESC
+                     LIMIT 1",
+                    [$userId]
+                );
+
+                $slug = $lastProgress['slug'] ?? null;
+            }
+
+            // No progress yet, default to cpp
+            if (!$slug) {
+                $slug = 'cpp';
+            }
         }
+
+        // Save valid slug to session
+        $_SESSION['last_lang'] = $slug;
 
         $language = $this->db->fetchOne(
             "SELECT * FROM cnt_languages WHERE slug = ?",

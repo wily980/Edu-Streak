@@ -10,6 +10,9 @@ $router = new Router();
 $router->add('GET', '/auth/google', 'AuthController', 'redirectToGoogle');
 $router->add('GET', '/auth/google/callback', 'AuthController', 'handleGoogleCallback');
 
+//histori
+$router->add('GET', '/History', 'CodeController', 'index');
+
 //quest
 $router->add('GET', '/quest', 'QuestController', 'index');
 
