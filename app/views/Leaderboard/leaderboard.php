@@ -63,7 +63,7 @@ $rankEmoji  = ['🥇', '🥈', '🥉'];
         <span class="sparkle sparkle-1">✦</span>
         <span class="sparkle sparkle-2">✦</span>
         <span class="sparkle sparkle-3">✦</span>
-        <img src="<?= BASE_URL ?>/assets/leaderboard-icon.png" alt="Medals" class="medal-combined">
+        <img src="<?= BASE_URL ?>/assets/image 10.png" alt="Medals" class="medal-combined">
       </div>
 
       <h1 class="score-title">Look at your score</h1>
@@ -122,7 +122,7 @@ $rankEmoji  = ['🥇', '🥈', '🥉'];
         <p class="info-desc">
           Reach the highest score as possible this month and compare it with your previous month
         </p>
-        <img src="<?= BASE_URL ?>/assets/robot-image.png" alt="Robot" class="robot-img">
+        <img src="<?= BASE_URL ?>/assets/robot 1.png" alt="Robot" class="robot-img">
       </div>
     </aside>
 

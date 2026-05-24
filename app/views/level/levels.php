@@ -156,9 +156,7 @@ $positions = [
             ?>
 
             <?php if ($isOpen): ?>
-              <a href="/Edu_Streak_Lock_in/public/students/<?= htmlspecialchars($language['slug']) ?>/tracks/<?= htmlspecialchars($track['id']) ?>"
-                 class="stage-node open <?= $done ? 'done' : '' ?>"
-                 style="<?= $style ?>">
+              <a href="<?= BASE_URL ?>/lesson?track_id=<?= $track['id'] ?>" class="stage-node open <?= $done ? 'done' : '' ?>" style="<?= $style ?>">
                 <span class="stage-icon"><?= $done ? '★' : '☆' ?></span>
                 <span class="stage-label"><?= htmlspecialchars($track['title']) ?></span>
                 <?php if ($pct > 0 && !$done): ?>
@@ -229,12 +227,12 @@ $positions = [
         <div class="quest-card profile-card">
           <img src="<?= htmlspecialchars($user['avatar_url'] ?? '') ?>" alt="avatar" class="profile-avatar">
           <p class="profile-text"><?= htmlspecialchars($user['name'] ?? $user['username']) ?></p>
-          <a href="/Edu_Streak_Lock_in/public/students/profile" class="btn btn-blue">View Profile</a>
+          <a href="/Edu_Streak_Lock_in/public/profile" class="btn btn-blue">View Profile</a>
         </div>
         <?php else: ?>
         <div class="quest-card profile-card">
           <p class="profile-text">Make your profile to keep your streak!</p>
-          <a href="/Edu_Streak_Lock_in/public/students/profile" class="btn btn-green">Make profile</a>
+          <a href="/Edu_Streak_Lock_in/public/profile" class="btn btn-green">Make profile</a>
           <a href="/Edu_Streak_Lock_in/public/auth/google" class="btn btn-blue">Sign in with Google</a>
         </div>
         <?php endif; ?>

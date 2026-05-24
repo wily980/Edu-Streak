@@ -10,6 +10,17 @@ $router = new Router();
 $router->add('GET', '/auth/google', 'AuthController', 'redirectToGoogle');
 $router->add('GET', '/auth/google/callback', 'AuthController', 'handleGoogleCallback');
 
+//quest
+$router->add('GET', '/quest', 'QuestController', 'index');
+
+// Lesson
+$router->add('GET',  '/lesson',        'LessonController', 'index');
+$router->add('POST', '/lesson/submit', 'LessonController', 'submit');
+
+// Profile
+$router->add('GET',  '/profile',      'ProfileController', 'index');
+$router->add('POST', '/profile/edit', 'ProfileController', 'edit');
+
 // Leaderboard
 $router->add('GET', '/leaderboard', 'LeaderboardController', 'index');
 
@@ -29,7 +40,7 @@ $router->add('POST', '/learn', 'LanguageController', 'store');
 $router->add('GET', '/students/shop', 'ShopController', 'index');
 $router->add('POST', '/shop/buy', 'ShopController', 'buy');
 
-// Students — specific routes BEFORE wildcards
+// shi aku lupa ini apa sori 
 $router->add('GET', '/students', 'StudentController', 'index');
 $router->add('GET', '/students/create', 'StudentController', 'create');
 $router->add('GET', '/students/{slug}/levels', 'StudentController', 'levels');
