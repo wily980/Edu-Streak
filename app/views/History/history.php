@@ -137,7 +137,7 @@ $streak = (int)($user['streak'] ?? 0);
             <?php foreach ($history as $item): ?>
             <div class="history-item">
               <?php if (!empty($item['language_icon'])): ?>
-                <img src="<?= htmlspecialchars($item['language_icon']) ?>" alt="<?= htmlspecialchars($item['language_name']) ?>" class="lang-icon">
+                <img src="<?= BASE_URL . htmlspecialchars($item['language_icon']) ?>" alt="<?= htmlspecialchars($item['language_name']) ?>" class="lang-icon">
               <?php endif; ?>
               <div class="history-info">
                 <div class="lesson-title"><?= htmlspecialchars($item['lesson_title']) ?></div>

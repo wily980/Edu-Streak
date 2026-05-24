@@ -20,28 +20,28 @@ $rankColors = ['#FFD700', '#C0C0C0', '#CD7F32'];
       <img src="<?= BASE_URL ?>/assets/Logoutama.png" alt="Logo" class="logo-img">
     </div>
     <nav class="nav-items">
-      <?php
-      $homeHref = isset($_SESSION['last_lang'])
-          ? BASE_URL . '/level?lang=' . $_SESSION['last_lang']
-          : BASE_URL . '/level';
-      $navLinks = [
-          ['label' => 'Home',        'href' => $homeHref,                        'icon' => 'home.png'],
-          ['label' => 'Code',        'href' => BASE_URL . '/code',               'icon' => 'history.png'],
-          ['label' => 'Leaderboard', 'href' => BASE_URL . '/leaderboard',        'icon' => 'trophy.png'],
-          ['label' => 'Quest',       'href' => BASE_URL . '/quest',              'icon' => 'Tresure box.png'],
-          ['label' => 'Shop',        'href' => BASE_URL . '/students/shop',      'icon' => 'shop.png'],
-          ['label' => 'Profile',     'href' => BASE_URL . '/profile',            'icon' => 'Profile.png'],
-      ];
-      $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-      foreach ($navLinks as $link):
-          $slug   = str_replace(BASE_URL, '', $link['href']);
-          $active = str_starts_with($currentPath, $slug) ? 'active' : '';
-      ?>
-      <a href="<?= htmlspecialchars($link['href']) ?>" class="nav-item <?= $active ?>">
-          <img src="<?= BASE_URL ?>/assets/<?= htmlspecialchars($link['icon']) ?>" alt="<?= htmlspecialchars($link['label']) ?>" class="nav-box-icon">
-          <span class="nav-label"><?= htmlspecialchars($link['label']) ?></span>
-      </a>
-      <?php endforeach; ?>
+            <?php
+            $homeHref = isset($_SESSION['last_lang'])
+                ? BASE_URL . '/level?lang=' . $_SESSION['last_lang']
+                : BASE_URL . '/level';
+            $navLinks = [
+                ['label' => 'Home',        'href' => $homeHref,                        'icon' => 'home.png'],
+                ['label' => 'History',        'href' => BASE_URL . '/History',               'icon' => 'history.png'],
+                ['label' => 'Leaderboard', 'href' => BASE_URL . '/leaderboard',        'icon' => 'trophy.png'],
+                ['label' => 'Quest',       'href' => BASE_URL . '/quest',              'icon' => 'Tresure box.png'],
+                ['label' => 'Shop',        'href' => BASE_URL . '/students/shop',      'icon' => 'shop.png'],
+                ['label' => 'Profile',     'href' => BASE_URL . '/profile',            'icon' => 'Profile.png'],
+            ];
+            $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            foreach ($navLinks as $link):
+                $slug   = str_replace(BASE_URL, '', $link['href']);
+                $active = str_starts_with($currentPath, $slug) ? 'active' : '';
+            ?>
+            <a href="<?= htmlspecialchars($link['href']) ?>" class="nav-item <?= $active ?>">
+                <img src="<?= BASE_URL ?>/assets/<?= htmlspecialchars($link['icon']) ?>" alt="<?= htmlspecialchars($link['label']) ?>" class="nav-box-icon">
+                <span class="nav-label"><?= htmlspecialchars($link['label']) ?></span>
+            </a>
+            <?php endforeach; ?>
     </nav>
   </aside>
 

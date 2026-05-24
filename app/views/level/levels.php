@@ -8,7 +8,7 @@ $streak = (int)($user['streak'] ?? 0);
 
 $unlocked = [];
 foreach ($tracks as $i => $track) {
-    $unlocked[$track['id']] = ($i === 0) || ((float)$tracks[$i-1]['completion_pct'] >= 80);
+    $unlocked[$track['id']] = ($i === 0) || ((float)$tracks[$i-1]['completion_pct'] > 0);
 }
 
 $positions = [
@@ -96,7 +96,7 @@ $positions = [
         <div class="level-header">
           <a href="<?= BASE_URL ?>/learn" class="back-link">← Back</a>
           <div class="level-lang-info">
-            <img src="<?= htmlspecialchars($language['icon_url'] ?? '') ?>" alt="<?= htmlspecialchars($language['name']) ?>" class="level-lang-icon">
+            <img src="<?= BASE_URL . htmlspecialchars($language['icon_url'] ?? '') ?>" alt="<?= htmlspecialchars($language['name']) ?>" class="level-lang-icon">
             <h1 class="page-title"><?= htmlspecialchars($language['name']) ?></h1>
           </div>
         </div>
